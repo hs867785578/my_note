@@ -1,0 +1,7 @@
+最重要的区别：
+
+const修饰的变量可以在运行的时候初始化，而constexpr修饰的变量一定是在编译器初始化
+
+constexpr是名副其实的常量，所有的constexpr都是const
+
+const表示的是read only的语义，表示运行时不可更改
