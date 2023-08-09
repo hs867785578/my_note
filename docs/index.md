@@ -6,6 +6,6 @@ This is the website I used to take notes while learning. And the source files of
 
 More about me:
 
-- [Email](hanshuothu@163.com)
+- [Email](mailto:hanshuothu@163.com)
 - [Github](https://github.com/hs867785578)
 - [知乎](https://www.zhihu.com/people/lao-si-ji-93-39/posts)
