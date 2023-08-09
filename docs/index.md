@@ -1,20 +1,11 @@
-# Welcome to MkDocs
+## Welcome to my blog
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+I'm **Hans**, a student studying at Tsinghua University in China
 
-## Commands
+This is the website I used to take notes while learning. And the source files of all the posts are in [note](https://github.com/hs867785578/my_note).
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+More about me:
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-
-
-## change test
+- [Email](hanshuothu@163.com)
+- [Github](https://github.com/hs867785578)
+- [知乎](https://www.zhihu.com/people/lao-si-ji-93-39/posts)
