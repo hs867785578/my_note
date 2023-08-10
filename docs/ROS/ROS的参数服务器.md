@@ -1,4 +1,4 @@
-
+参数服务器
 # 1. 通过launch来加载yaml定义的参数
 
 ![](images/ROS的参数服务器_image_1.png)

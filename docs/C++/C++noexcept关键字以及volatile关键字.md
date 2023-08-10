@@ -1,4 +1,4 @@
-
+noexcept
 
 # noexcept
 ## 1 noexcept作用

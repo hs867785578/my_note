@@ -1,4 +1,4 @@
-
+launch文件
 # 1. rosparam 加载yaml定义的参数
 
 ![](images/ROS的参数服务器_image_1.png)

@@ -1,3 +1,4 @@
+ Carla使用过程中的一些注意点
 # 1.ros_manual_control一片黑的原因可是是ros的cv bradge的问题
 
 https://blog.csdn.net/qq_38606680/article/details/129118491

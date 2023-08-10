@@ -1,3 +1,4 @@
+配置静态ip
 # 查看ip地址，网关，掩码
 ```
 wheeltec@wheeltec:~$ ip a

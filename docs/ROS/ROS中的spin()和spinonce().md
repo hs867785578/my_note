@@ -1,3 +1,4 @@
+spin使用
 # 1 概述
 spinonce()清空当前回调函数队列，spin()是spinonce()的循环调用。
 

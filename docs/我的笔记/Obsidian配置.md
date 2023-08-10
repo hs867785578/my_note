@@ -1,4 +1,4 @@
-
+obsidian的个人配置
 # 1 插件
 - remotely save（用来同步笔记），可以用GitHub代替
 - attachment name formating：用来重命名图片名称

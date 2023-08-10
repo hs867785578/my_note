@@ -1,1 +1,0 @@
-安装carla时可以直接 pip3 install calra0.9.13
