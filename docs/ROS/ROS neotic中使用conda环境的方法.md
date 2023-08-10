@@ -2,6 +2,7 @@
 
 2.如果想在ROS中使用conda，一般要先下载ROS再下载conda，然后在~/.bashrc中conda deactivate。在下载conda之后，终端中which python的位置会随着conda的虚拟环境而发生改变，如下图所示
 
+
 ![2023-04-13 10-36-02屏幕截图.png](../_resources/2023-04-13%2010-36-02屏幕截图.png)
 
 3.ros编译的时候可以指定python解释器的路径catkin_make DPYTHON_EXECUTABLE=/home/zhanjun/anaconda3/envs/carla/bin/python3
