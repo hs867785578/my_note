@@ -11,8 +11,7 @@
 Union适用于各数据类型各变量占用空间差不多并且对各变量同时使用要求不高的场合。
 一个数组（或者更大的数组int a[100]），和一个或者几个小变量写在一个union里，实在没什么必要，节省的空间太有限了，还增加了一些风险（最少有前边提到的逻辑上的风险）。所以，从内存占用分析，这种情况不如直接struct。
 
-
-![[Pasted image 20230519103052.png]]
+![](images/C++中Struct和Union的区别_image_1.png)
 
 去别的具体实例：
 [(2条消息) 结构体struct和联合体union最全讲解_struct union_liguangxian2018的博客-CSDN博客](https://blog.csdn.net/liguangxianbin/article/details/80510669?app_version=5.15.5&csdn_share_tail=%7B%22type%22%3A%22blog%22%2C%22rType%22%3A%22article%22%2C%22rId%22%3A%2280510669%22%2C%22source%22%3A%22qq_44640266%22%7D&utm_source=app)

@@ -1,0 +1,9 @@
+1、self-attention是卷积层视野更广的CNN，且卷积层的视野是可变的
+2、self-attention解决了RNN不可以并行训练的难题
+3、RNN必须等待前一个vector计算完，才能计算下一个，无法并行训练
+
+4、self-attention同样可以用于图结构，对于图结构来说，各个节点可以看作是vector，各个节点的关联性不需要self-attention来学习，edge已经直接给出了各个节点的关联性，在计算attention-matrix可以只计算有edge相连的部分，这样attention-matrix是一个稀疏矩阵，如果每个节点都各个相连，那么等同于self-attention
+
+5、self-attention的缺点是运算量过大，运算时间较长，难点是找到一个又快有准确的self-attention结构
+
+6、当前transformer和self-attention几乎一个意思，大家通常用transformer来指代self-attention，各种former变形，指的是self-attention的变形

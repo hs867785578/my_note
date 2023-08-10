@@ -1,1 +1,1 @@
-![](../_resources/d83e63f97964be6500f24fa8383fa13e.png)
+![](images/linux和windows中静态库和动态库的后缀_image_1.png)

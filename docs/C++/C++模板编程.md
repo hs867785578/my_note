@@ -1,57 +1,60 @@
 1. **C++中如果存在同名函数的普通函数，模板具体化函数，模板函数。那么调用的优先级是普通函数>模板具体化函数>模板函数。**
 
-![](../_resources/6c718d8ddcf15833b718324d439f990a.png)
+![](images/C++模板编程_image_1.png)
 1. **模板具体化函数和普通函数一样，是有实体的，可以头文件声明，源文件定义。而模板函数没有实体，所以不能分文件编写，只能在头文件中分别声明和定义。**
-![](../_resources/25ad2f819edd1b521de187dea9196438.png)
+![](images/C++模板编程_image_2.png)
 
 1. **decltype（func（））括号内如果是函数，并不会调用函数，只会推导出函数的返回值类型。而auto = func（），会调用函数体。注意：函数后置返回类型在C++14之后就没什么意义了，不建议使用**
 
-![](../_resources/f695dae03e3a46b8a3d25bc05956e51f.png)![](../_resources/2a43b8e55480cec0d352ca0df44d0672.png)
+![](images/C++模板编程_image_3.png)![](images/C++模板编程_image_4.png)
 
 1. **函数模板可以隐式的推导，也就是说在函数模板创建的时候可以不用<>指定数据类型。但是类模板不行，类模板必须用<>指定数据类型。**
-![](../_resources/e23a82bc1da789327d85ad72965e3f9b.png)
+![](images/C++模板编程_image_5.png)
 1. **类模板中的成员函数在类外实现的方式（类外也需要加template<typename T>声明）**
-![](../_resources/4fb5b6317d751d8d065cf112f1d9c8cf.png)
+![](images/C++模板编程_image_6.png)
 1. **类模板可以指定默认模板类型，在定义时就可以缺省有默认类型的模板参数。**
-![](../_resources/d1b415bf3559861bd1b488a4a95c61a6.png)
+![](images/C++模板编程_image_7.png)
 
 比如上述代码在定义AA类时，就可以AA <int>，这时会默认转成AA<int,string>。当然也可选择不使用默认的类型，比如AA<string,char>
 
 1. **类模板的完全具体化和部分具体化，在类外实现成员函数时需要注意和类声明保持一致。调用的规则是具体化程度高的类>具体化程度低的类>没有具体化的类。**
-![](../_resources/21aa5a946ace3749b72ef71371ce26ce.png)
+![](images/C++模板编程_image_8.png)
 
 1. **模板类继承普通类没什么好说的，模板类在声明时记得<>，其他的都和普通继承一样。但是普通类继承模板类时，可以继承模板类的实例化版本，也就是必须指定继承的父类（模板类）的模板参数<>，此时和普通继承区别不大。也可以直接继承模板类，此时需要在构造函数中，调用父类的构造函数时加上<T1,T2>，见下图2.**
 
-![](../_resources/8f9c96a6d86f3933c1fa7f017f4e5e99.png)
+![](images/C++模板编程_image_9.png)
 上述代码在声明AA时，只需要声明AA a；即可，不需要用<>。
-![](../_resources/c46150d00a605d61789c7157445b759a.png)
+![](images/C++模板编程_image_10.png)
 上述代码在声明AA时，需要用<>，比如AA<int，string> a。
 
 1. **模板类继承模板类，需要在子类中增加模板类的参数，也就是子类的模板类参数包括子类自己的模板类参数+父类的模板类参数，如下述代码中T是子类的模板类参数，T1和T2是父类的模板类参数。**
 
-![](../_resources/5665c3a5222aad95d5f6c662a99f9702.png)
+![](images/C++模板编程_image_11.png)
 
 1. **花活：可以继承模板参数，也就是模板参数当作父类。这样子类的父类可以不指定，而是可变的。**
-![](../_resources/6d6c856001048c52402fa5027185fdfc.png)
+![](images/C++模板编程_image_12.png)
 1. **模板类用于函数的参数和返回值。如果调用函数时，函数模板和普通函数都能匹配上，优先使用函数模板。**
-![](../_resources/e2170836e7b96e6e6d741bc03118d3a5.png)
+![](images/C++模板编程_image_13.png)
 
 其实上边的第二个函数并不规范，很弱智，可以直接下称下边这样，效果是一样的。下边的方法可以支持任意类型，而上边的方法支持AA这一种模板类，再来个BB就不支持了。也就是适用范围更小。
-
-![](../_resources/c56a75e2efa5426756d9fda17cb545fe.png)![](../_resources/c67baae6b6d388c14992b1c71135d1c5.png)![](../_resources/958c3019d15c8b28c2229b4d67847c1d.png)
+![](images/C++模板编程_image_14.png)![](images/C++模板编程_image_15.png)![](images/C++模板编程_image_16.png)
 
 1. **最好的友元模板函数写法**
-![](../_resources/985c945dc85914a1df9826230d1a5b8e.png)![](../_resources/3bd2c38882ff2e89937c78aaab8985de.png)
+![](images/C++模板编程_image_17.png)
+
+![](images/C++模板编程_image_18.png)
 
 1. **在模板类中创建模板类和模板函数(类之间的嵌套)**
-![](../_resources/ffa3a30d8818b14b27e83ef9a9411932.png)
+![](images/C++模板编程_image_19.png)
 
 1. **C++支持模板的模板**
-![](../_resources/7dfe9fd6835d030f2483750957f5297b.png)
+![](images/C++模板编程_image_20.png)
+
 class和typename都行
-![](../_resources/93eff7536808be2bf8b5597d5943eca1.png)
+![](images/C++模板编程_image_21.png)
 
 具体定义
-![](../_resources/2a967937cf556870542d3f64b1a3a0cf.png)
+![](images/C++模板编程_image_22.png)
+
 最精髓的地方：T1是一个模板，用T2来创建T1的具体化类型。
-![](../_resources/a7e2263197a31d1b6c55e60ea821a198.png)
+![](images/C++模板编程_image_23.png)

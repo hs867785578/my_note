@@ -83,4 +83,4 @@ typedef int* my_int_point;
 ```
 
 # using代替typedef
-![[Pasted image 20230710123127.png]]
+![](images/typedef的用法（数组）_image_1.png)

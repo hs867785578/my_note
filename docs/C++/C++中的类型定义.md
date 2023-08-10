@@ -1,6 +1,7 @@
 note：一般来以*\_t结尾，可以理解为type/typedef的缩写，表示它是通过typedef定义的，而不是其它数据类型。uint8_t，uint16_t，uint32_t等都不是什么新的数据类型，它们只是使用typedef给类型起的别名，新瓶装老酒的把戏。
 又比如float64是double的别名
-![[Pasted image 20230703160526.png]]
+
+![](images/C++中的类型定义_image_1.png)
 
 ## 1 内置类型
 七种基本的数据类型bool、char、int、flaot、double、void、wchar_t（typedef short int wchar_t;）

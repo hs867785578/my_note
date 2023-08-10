@@ -28,9 +28,9 @@ source /opt/ros/melodic/setup.bash
 wsl2访问外网：
 1.首先保证wsl能访问本机ip
 https://blog.csdn.net/nick_young_qu/article/details/113709768
-![](../_resources/cb49aa3162c5671efca6a8f9551d8d90.png)
+![](images/ubuntu%20wsl的一些坑_image_1.png)
 2.调整socket代理
-![](../_resources/250a8d73691e16a756abfe5e6ae46454.png)
+![](images/ubuntu%20wsl的一些坑_image_2.png)
 
 host_ip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
 #export ALL_PROXY="http://$host_ip:10810"

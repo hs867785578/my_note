@@ -19,7 +19,7 @@ ifconfg -a
 #### 步骤 2：编辑 Netplan 配置文件中的 wifi 接口详细信息
 
 Netplan 配置文件在 `/etc/netplan` 目录下。如果你查看这个目录的内容，你应该看到类似 `01-network-manager-all.yml` 或 `50-cloud-init.yaml` 等文件。
-![[Pasted image 20230518152733.png]]
+![](images/linux终端连接网络_image_1.png)
 如果是 Ubuntu 服务器，你应该有 `50-cloud-init.yaml` 文件。如果是桌面计算机，应该是 `01-network-manager-all.yml` 文件。
 
 Linux 桌面计算机的 Network Manager 允许你选择一个无线网络。你可以在它的配置中硬编码写入 WiFi 接入点。这可以在自动掉线的情况下（比如挂起）时帮助到你。
@@ -27,7 +27,7 @@ Linux 桌面计算机的 Network Manager 允许你选择一个无线网络。你
 不管是哪个文件，都可以打开编辑。我希望你对 Nano 编辑器有一点[熟悉](https://itsfoss.com/nano-editor-guide/)，因为 Ubuntu 预装了它。
 
 编辑这个文件
-![[Pasted image 20230518153020.png]]
+![](images/linux终端连接网络_image_2.png)
 1.  `wifis:`
 2.  `wlan0:`
 3.  `dhcp4: true`
@@ -36,7 +36,7 @@ Linux 桌面计算机的 Network Manager 允许你选择一个无线网络。你
 6.  `"SSID_name":`
 7.  `password: "WiFi_password"`
 
-![[Pasted image 20230518153039.png]]
+![](images/linux终端连接网络_image_3.png)
 
 
 #### 步骤 3：使配置生效
@@ -45,7 +45,7 @@ Linux 桌面计算机的 Network Manager 允许你选择一个无线网络。你
 2.  `sudo netplan apply`
 
 如果报错：
-![[Pasted image 20230518153140.png]]
+![](images/linux终端连接网络_image_4.png)
 
 否则重启
 

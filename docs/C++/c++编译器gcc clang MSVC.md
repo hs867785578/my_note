@@ -5,9 +5,10 @@ LLVM早期的前端使用的是gcc，后来apple公司重新为C C++ Objective C
 
 gcc的前端、中端、后端都叫gcc。
 
-![](../_resources/6f55043ec69de28a166b4379443069f8.png)
+![](images/c++编译器gcc%20clang%20MSVC_image_1.png)
+
 
 clang-format是用来格式化代码的，可以单独下载
 clangd是用来智能提示的，和vscode中c/c++ 插件是冲突的，他的提示依赖于Cmake生成的compile_commands.json
 
-![](../_resources/bc3070c96b711726591a94e94b4014dc.png)
+![](images/c++编译器gcc%20clang%20MSVC_image_2.png)

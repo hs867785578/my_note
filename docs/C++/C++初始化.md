@@ -14,4 +14,4 @@
 
 统一用{}初始化
 
-![[Pasted image 20230606161151.png]]
+![](images/C++初始化_image_1.png)

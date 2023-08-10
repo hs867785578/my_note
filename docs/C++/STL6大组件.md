@@ -50,7 +50,7 @@ deque容器拥有更加复杂的数据结构。**从deque队列的两端插入�
 
 3. priority_queue\<T>：是一个封装了 vector\<T> 容器的适配器类模板，默认实现的是一个会对元素排序，从而保证最大元素总在队列最前面的队列。priority_queue\<T> 模板定义在头文件 queue 中。
 
-![[Pasted image 20230627230357.png]]
+![](images/STL6大组件_image_1.png)
 ![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80MzQ4NTcyLTAxMTk0OGUxYzFjNmNmNGIucG5n?x-oss-process=image/format,png)
 
 ### 2.2函数对象适配器
@@ -63,13 +63,13 @@ C++ STL 标准库中迭代器大致分为 5 种类型，分别是输入迭代器
 所谓迭代器适配器，其本质也是一个模板类，比较特殊的是，该模板类是借助以上 5 种基础迭代器实现的。换句话说，迭代器适配器模板类的内部实现，是通过对以上 5 种基础迭代器拥有的成员方法进行整合、修改，甚至为了实现某些功能还会添加一些新的成员方法。由此，将基础迭代器“改头换面”，就变成了本节要讲的迭代器适配器。
 本质上讲，迭代器适配器仍属于迭代器，可以理解为是基础迭代器的“翻新版”或者“升级版”。同时，“xxx 迭代器适配器”通常直接称为“xxx 迭代器”。
 
-![[Pasted image 20230627230146.png]]
+![](images/STL6大组件_image_1.png)
 
-![[Pasted image 20230627230210.png]]
+![](images/STL6大组件_image_2.png)
 非适配器版本
 
 
-![[Pasted image 20230627230202.png]]
+![](images/STL6大组件_image_2.png)
 适配器版本
 ## 3 算法Algorithm
 一般分为三类，查找、排序和数值操作。
@@ -94,7 +94,7 @@ STL中迭代器主要用来把容器和算法结合起来，扮演容器与算�
 - p-i：返回 p 前面第 i 个元素的迭代器。
 - p[i]：返回 p 后面第 i 个元素的引用。
 
-![[Pasted image 20230627225420.png]]
+![](images/STL6大组件_image_3.png)
 
 
 ## 5 仿函数functor

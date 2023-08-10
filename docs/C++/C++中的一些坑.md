@@ -3,19 +3,20 @@
 
 ## 2.单例模式
 可以在函数定义时创建一个新的静态变量，然后如果再掉用的时候就不会在执行新建这个指令了。下图中b，c不再新建，而是直接返回a创建的单例地址。
-![](../_resources/6f122627545d3bd39f8342408d507fb0.png)
+![](images/C++中的一些坑_image_1.png)
+
 
 ## 3 类内static、override声明，在类外不需要重复说明，但是const函数需要。
  在类内声明时要加static声明，在类外定义时不加。类似的还有override、virtual。但是const不包含在内。
 
-![](../_resources/eab28edcbbe98c5577a17552506d329d.png)![](../_resources/1333a04b59631b6f89953770787fd5d7.png)
-![[Pasted image 20230724170552.png]]
+![](images/C++中的一些坑_image_2.png)![](images/C++中的一些坑_image_3.png)
+![](images/C++中的一些坑_image_4.png)
 
-![[Pasted image 20230724170616.png]]
+![](images/C++中的一些坑_image_4.png)
 
 
 ## 4.类内定义函数时，编译器会自动加上inline，在类外时需要手动在类外定义时加上，而在类内无需加。
-![](../_resources/2f087ee70a327ec416847849915c3b62.png)![](../_resources/23efc83a8be44e682807256f92e750c2.png)
+![](images/C++中的一些坑_image_5.png)![](images/C++中的一些坑_image_6.png)
 
 ## 5.在google规范中，一般bool func(const B &input，C \*output)，
 这样做的原因是，首先bool天然具有实际的意义，比如一个precess类的函数，天然需要返回是否成功。其次，如果output太多，一般也会这样写。之所以输出写成指针是因为比较好辨别。如果返回的只是一个值，那么A func(const &B)也完全没问题。
@@ -39,13 +40,13 @@ C++三法则：如果需要**析构函数，则一定需要拷贝构造函数和
 
 
 1.
-![](../_resources/b9d3fbbc52c6e4f62f2ba1e02093fff8.png)![](../_resources/8967eea7b61640f777203611213d8ac2.png)
+![](images/C++中的一些坑_image_7.png)![](images/C++中的一些坑_image_8.png)
 
 ## 6.什么时候传值和传引用
 
 
-![](../_resources/5321c4a7868e8074bccebd193f3d810c.png)
+![](images/C++中的一些坑_image_9.png)
 
 补充：智能指针，一般也可要传引用。
 
-![[Pasted image 20230724170819.png]]
+![](images/C++中的一些坑_image_10.png)

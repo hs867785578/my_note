@@ -4,7 +4,7 @@ ubuntu下可以借助update-alternatives工具来管理软连接（也就是实�
 查看gcc/g++软链接指向
 
 从下图可看出目前的gcc不是通过update-alternatives管理的
-![[Pasted image 20230628195924.png]]
+![](images/ubuntu下软件多个版本的统一管理_image_1.png)
 **向系统中添加一个新的alternatives组**
 ```bash
 --install <link> <name> <path> <priority>
@@ -16,16 +16,16 @@ sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 40
 
 查看gcc/g++软链接指向
 gcc软链接变成了/etc/alternatives/gcc
-![[Pasted image 20230628200026.png]]
+![](images/ubuntu下软件多个版本的统一管理_image_2.png)
 查看/etc/alternatives/gcc软链接指向，发现又链接回/usr/bin/gcc-6了，所以由此可看出update-alternatives为了管理方便增加了一层软链接
-![[Pasted image 20230628200059.png]]
+![](images/ubuntu下软件多个版本的统一管理_image_3.png)
 
 ### 显示命令`<name>`的信息及目标文件--display \<name>
-![[Pasted image 20230628200137.png]]
+![](images/ubuntu下软件多个版本的统一管理_image_4.png)
 
 
 ### 配置命令的版本  --config \<name>
-![[Pasted image 20230628200202.png]]
+![](images/ubuntu下软件多个版本的统一管理_image_5.png)
 
 ### 移除系统中注册的某个`<name>`的某个软件版本`<path>`
 --remove \<name> \<path>

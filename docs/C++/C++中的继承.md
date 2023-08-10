@@ -1,8 +1,8 @@
 、1. **C++中的继承分为public、protected、private，三种继承关系的继承关系如下图所示**
-![](../_resources/ee8ff51763b29ae882b71486875a3a5e.png)
+![](images/C++中的继承_image_1.png)
 
 1. **要想实现多态只能用public继承，如下图所示**
-![](../_resources/cccb53392c00bc02ba71144cc759138c.png)
+![](images/C++中的继承_image_2.png)
 
       [C++的私有继承和EBO_fl2011sx的博客-CSDN博客](https://blog.csdn.net/fl2011sx/article/details/124038512)
 
@@ -55,12 +55,12 @@ https://www.bilibili.com/video/BV1v64y1q7JT/?spm_id_from=333.1007.top_right_bar_
 
 1. **父类和子类同名的情况**
 并不覆盖，可以通过父类：：成员名的方式，在子类中访问父类的同名对象，如下图所示。
-![](../_resources/f49fe8655281e4309ebfe1966c39290d.png)
+![](images/C++中的继承_image_3.png)
 
 其实自己的类中，也可以用类名+：：访问，只是可以省略。
-![](../_resources/c8bc5ecf56dff764b869b3b936d54927.png)
+![](images/C++中的继承_image_4.png)
 
-![](../_resources/abdddc93fb505aaaf0a4e3fcbc84c85f.png)
+![](images/C++中的继承_image_5.png)
 
 对于C来说，其对象模型是
 class C{
@@ -75,51 +75,51 @@ A a
 <font color=red>注意：如果ABC中同时又test()方法，那么C::test()，访问的是C的test，C::B::test()访问的是B的test。</font>
 
 1. **在子类中可以通过pubulic/protected/private + using 来修改继承过来的父类的成员变量的权限。**
-![](../_resources/1a11558bc38d283fd1a31b309f0bfd84.png)
+![](images/C++中的继承_image_6.png)
 
 1. **继承的对象模型（父类和子类的this指针是同一个）**
-![](../_resources/082d78a37c1aa2d6b056d495c4c0262f.png)![](../_resources/141b2dad850e7e03664282d862edb8c4.png)
+![](images/C++中的继承_image_7.png)![](images/C++中的继承_image_8.png)
 
 1. **C++中继承的默认规则：父类由父类自己的构造函数初始化，子类构造函数只初始化剩下的部分。**
 
 2. **如果子类重载了父类的同名函数，那么父类的所有同名函数都会被隐藏，如下边这种情况，如果不注释，会报错，这是因为子类重载了func，所以默认调用子类的func函数，但是子类的func又不需要参数，所以报错。**
 
-**![](../_resources/c01256568340f82229b00e49a196806d.png)**
+**![](images/C++中的继承_image_9.png)**
 
 1. **虚拟继承**
 虚拟继承主要是为了解决菱形继承的情况使用的。
-![](../_resources/ddc2ba113e86d9aa5183d226ff7e2097.png)
+![](images/C++中的继承_image_10.png)
 
 1. **在定义虚函数时，只需要在声明时增加virtual，在函数具体定义时不能加**
-![](../_resources/f4e8f3d27ed5ba81d035b77308938547.png)
+![](images/C++中的继承_image_11.png)
 1. **在子类中定义虚函数时，可以和override连用，同时不声明virtual(因为父类声明过了)**
 
-![](../_resources/4ef6773044f2e1a40fd02d6d2c91e2d3.png)
+![](images/C++中的继承_image_12.png)
 基类
-![](../_resources/34fa72313001902cdcebd5386c76efe6.png)
+![](images/C++中的继承_image_13.png)
 派生类
-![](../_resources/7619357592709e90dba8d1fbf065f9b2.png)
+![](images/C++中的继承_image_14.png)
 ==如果基类加上virtual就不会报错了。==
 
 1. **父类的析构函数一定是virtual的。**
 
 如下图所示，如果~AA()不是virtual的，那么delete a其实调用的是~AA（）。实际上，由于我们想要实现的是多态，所以，我们希望调用的是~BB（），因为~BB（）中会自动调用~AA（）。这时，把~AA（）声明为virtual，那么~BB（）自动变为virtual，基类的指针a就会指向~BB（）。
 
-![](../_resources/979d21fccafc6d0f068f5b79a8904345.png)
+![](images/C++中的继承_image_15.png)
 
 1. **一个好的习惯，delete后要指向nullptr**
-![](../_resources/65f9b232780a73d497a6bc30bf012952.png)
+![](images/C++中的继承_image_16.png)
 
 1. **纯虚函数和抽象类**
-![](../_resources/3433c67ea7d7e42186d754356a53af9f.png)
-![](../_resources/696debc6250257986dd9294f61fd8044.png)
+![](images/C++中的继承_image_17.png)
+![](images/C++中的继承_image_18.png)
 
 1. **动态类型转换**
-![](../_resources/61c54271f3444d2d20f7bcdfb93f83a2.png)
+![](images/C++中的继承_image_19.png)
 
 1. **typeinfo（int）.name()返回的类型名称，根据编译器不同而不同，msvc返回int，gcc返回i**
-**![](../_resources/d09c1dbf56c6c6e10fc2e0a67cd38790.png)**
+**![](images/C++中的继承_image_20.png)**
 
-![](../_resources/bab8eb0bd691343b1e06f2f954c096ef.png)
-![](../_resources/0f92a9247d6af13b770bf91a22728449.png)
-![](../_resources/a1f714ebda0435c3a06c50f652c8c46e.png)
+![](images/C++中的继承_image_21.png)
+![](images/C++中的继承_image_22.png)
+![](images/C++中的继承_image_23.png)

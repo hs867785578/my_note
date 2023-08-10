@@ -53,7 +53,7 @@ IP地址 192.168.1.109
 - 双击自己连接的WIFI，点击IPV4 Settings，选择Add
 - 填入ip地址，子网掩码和网关，保存
 
-![[Pasted image 20230809171436.png]]
+![](images/ubuntu配置静态ip_image_1.png)
 
 重启，设置的静态ip才会生效
 
