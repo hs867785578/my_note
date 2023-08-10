@@ -28,7 +28,7 @@ f(1, 2.5, "");    //3 同f<int, float, const char*>(1, 2.5, "")此时Args为包�
 template<typename... Args> void f(Args... args) { 
     constexpr auto s1 = sizeof...(Args); // 模板参数包 
     constexpr auto s2 = sizeof...(args); // 函数参数包 
-    static_assert(s1 == s2);
+    static_assert(s1  s2);
 }
 ```
 
@@ -121,7 +121,7 @@ int main(int argc, char* argv[]) {
 //由于逗号表达式是从左往右计算，所以不管是右折叠还是左折叠，都是输出1 , 2 , 3.5. hello
 ```
 
-==语法形式中的op代表运算符，pack代表参数包，init代表初始值。==
+语法形式中的op代表运算符，pack代表参数包，init代表初始值。
 
 - 一元右折叠(unary right fold)
 ( pack op ... )

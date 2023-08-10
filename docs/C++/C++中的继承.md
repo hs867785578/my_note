@@ -18,17 +18,17 @@ class B{
 A a；
 }；
 
-那么，这样就很好理解了，如果是==private==继承，那么有：
+那么，这样就很好理解了，如果是private继承，那么有：
 class B{
-==private==：
+private：
     A a；
 }；
 
 所以对于A中原来的public，protected，private元素，在B中取交集，分别变为private，private，不可见（记住就行了，虽然不可见，但是是实际存在B中的内存的）
 
-那么，这样就很好理解了，如果是==protected==继承，那么有：
+那么，这样就很好理解了，如果是protected继承，那么有：
 class B{
-==protected：==
+protected：
     A a；
 }；
 
@@ -36,7 +36,7 @@ class B{
 
 那么，这样就很好理解了，如果是public继承，那么有：
 class B{
-==public：==
+public：
     A a；
 }；
 
@@ -99,7 +99,7 @@ A a
 ![](images/C++中的继承_image_13.png)
 派生类
 ![](images/C++中的继承_image_14.png)
-==如果基类加上virtual就不会报错了。==
+如果基类加上virtual就不会报错了。
 
 1. **父类的析构函数一定是virtual的。**
 

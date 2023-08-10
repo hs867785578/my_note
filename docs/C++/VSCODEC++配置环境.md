@@ -10,16 +10,16 @@ clangd也可以像c_cpp_properties.json一样自己配置头文件路径。具�
 ![](images/VSCODEC++配置环境_image_1.png)
 
 
-==clangd下载地址：github搜clangd，直接下载。clangd和LLVM不是绑定的，需要单独下载。==
+clangd下载地址：github搜clangd，直接下载。clangd和LLVM不是绑定的，需要单独下载。
 
 **2.代码格式化**
 这个毫无疑问，选择clang-format，安装该插件，可以通过设置查找“format”或“clang”来配置。注意：
 2.1 如果代码提示用的clangd，需要在clang插件中需要配置clang的path，和clang format的path。
-==clangd下载地址：github搜clangd，直接下载==
+clangd下载地址：github搜clangd，直接下载
 
 2.2 如果代码提示用的c/c++，需要配置如下三项：第一项是备选风格。第二项是安装的clang-format的路径（可以直接安装LLVM，在bin文件夹下有clang-format.exe文件）。第三项是是否使用.clang-format文件。
 
-==clang-format下载地址：和llvm绑定的，需要下载llvm==
+clang-format下载地址：和llvm绑定的，需要下载llvm
 ![](images/VSCODEC++配置环境_image_2.png)
 
 ![](images/VSCODEC++配置环境_image_3.png)

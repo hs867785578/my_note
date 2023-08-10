@@ -185,7 +185,7 @@ typedef actionlib::SimpleActionClient<demo01_action::AddIntsAction> Client;
 
 //处理最终结果
 void done_cb(const actionlib::SimpleClientGoalState &state, const demo01_action::AddIntsResultConstPtr &result){
-    if (state.state_ == state.SUCCEEDED)
+    if (state.state_  state.SUCCEEDED)
     {
         ROS_INFO("最终结果:%d",result->result);
     } else {

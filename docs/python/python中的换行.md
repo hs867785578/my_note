@@ -3,15 +3,15 @@
 pep8规定一行最多不超过79个字符，所以当一行代码过长时，需要进行换行，可以通过\\来显示的表达续行，也可以用()隐式的表达续行。python会认为()之中的所有字符在一行
 
 ```python
-if (a == True and
-    b == False):
+if (a  True and
+    b  False):
 ```
 
 或有明确的换行。
 
 ```python
-if a == True and \
-   b == False:
+if a  True and \
+   b  False:
 ```
 
 ```python

@@ -15,7 +15,7 @@ https://nuplan-devkit.readthedocs.io/en/latest/
 	cd /home
 	git clone https://github.com/motional/nuplan-devkit.git
 	cd nuplan-devkit
-	#创建conda环境（记得把requirements_torch.txt中的torch版本换成1.13.0+cu116，torhvision==0.14.0+cu116）不然训练会报错
+	#创建conda环境（记得把requirements_torch.txt中的torch版本换成1.13.0+cu116，torhvision0.14.0+cu116）不然训练会报错
 	conda env create -f environment.yml
 	conda activate nuplan
 	#安装工具包

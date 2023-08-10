@@ -247,7 +247,7 @@ target_link_libraries(Hello_sub
 import rospy
 from std_msgs.msg import String
 
-if __name__ == "__main__":
+if __name__  "__main__":
     #2.初始化 ROS 节点:命名(唯一)
     rospy.init_node("talker_p")
     #3.实例化 发布者 对象
@@ -301,7 +301,7 @@ from std_msgs.msg import String
 def doMsg(msg):
     rospy.loginfo("I heard:%s",msg.data)
 
-if __name__ == "__main__":
+if __name__  "__main__":
     #2.初始化 ROS 节点:命名(唯一)
     rospy.init_node("listener_p")
     #3.实例化 订阅者 对象

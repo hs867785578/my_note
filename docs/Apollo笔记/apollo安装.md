@@ -38,7 +38,7 @@ Mon Jan 25 15:51:08 2021
 | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
 |                               |                      |               MIG M. |
-|===============================+======================+======================|
+|=++|
 |   0  GeForce RTX 3090    On   | 00000000:65:00.0  On |                  N/A |
 | 32%   29C    P8    18W / 350W |    682MiB / 24234MiB |      7%      Default |
 |                               |                      |                  N/A |
@@ -48,7 +48,7 @@ Mon Jan 25 15:51:08 2021
 | Processes:                                                                  |
 |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
 |        ID   ID                                                   Usage      |
-|=============================================================================|
+|=|
 |    0   N/A  N/A      1286      G   /usr/lib/xorg/Xorg                 40MiB |
 |    0   N/A  N/A      1517      G   /usr/bin/gnome-shell              120MiB |
 |    0   N/A  N/A      1899      G   /usr/lib/xorg/Xorg                342MiB |
@@ -139,7 +139,7 @@ sudo systemctl restart docker
     | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
     | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
     |                               |                      |               MIG M. |
-    |===============================+======================+======================|
+    |=++|
     |   0  Tesla V100-SXM2...  Off  | 00000000:03:00.0 Off |                    0 |
     | N/A   31C    P0    38W / 300W |    153MiB / 32510MiB |      0%      Default |
     |                               |                      |                  N/A |
@@ -149,7 +149,7 @@ sudo systemctl restart docker
     | Processes:                                                                  |
     |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
     |        ID   ID                                                   Usage      |
-    |=============================================================================|
+    |=|
     |    0   N/A  N/A      9962      C   nvidia-cuda-mps-server             29MiB |
     +-----------------------------------------------------------------------------+
     ```

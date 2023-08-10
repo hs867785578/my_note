@@ -431,7 +431,7 @@ struct LocalView {
 
 对于每个Planner来说，其主要的逻辑都实现在`Plan`方法中。`PublicRoadPlanner::Plan`方法的实现逻辑如下：
 
-`Status PublicRoadPlanner::Plan(const TrajectoryPoint& planning_start_point, Frame* frame) { DCHECK_NOTNULL(frame); scenario_manager_.Update(planning_start_point, *frame); ① scenario_ = scenario_manager_.mutable_scenario(); ② auto result = scenario_->Process(planning_start_point, frame); ③ ... if (result == scenario::Scenario::STATUS_DONE) { scenario_manager_.Update(planning_start_point, *frame); ④ } else if (result == scenario::Scenario::STATUS_UNKNOWN) { return Status(common::PLANNING_ERROR, "scenario returned unknown"); } return Status::OK(); } `
+`Status PublicRoadPlanner::Plan(const TrajectoryPoint& planning_start_point, Frame* frame) { DCHECK_NOTNULL(frame); scenario_manager_.Update(planning_start_point, *frame); ① scenario_ = scenario_manager_.mutable_scenario(); ② auto result = scenario_->Process(planning_start_point, frame); ③ ... if (result  scenario::Scenario::STATUS_DONE) { scenario_manager_.Update(planning_start_point, *frame); ④ } else if (result  scenario::Scenario::STATUS_UNKNOWN) { return Status(common::PLANNING_ERROR, "scenario returned unknown"); } return Status::OK(); } `
 
 这段代码的几个关键步骤是：
 

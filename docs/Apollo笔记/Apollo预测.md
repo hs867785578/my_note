@@ -122,9 +122,9 @@ Apollo的evaluator和predictor有什么区别？
 答：evaluator为前处理，预测短时轨迹或者意图。predictor为后处理，扩展短时轨迹成长时轨迹，或者根据意图采样生成长时域轨迹。
 主要按照直接预测和间接预测来划分。
 
-对于直接预测，evaluator一般由==LSTM==结合语义地图直接给出一段较短的预测轨迹（3s），比如vehicle中的interaction 和caution，比如SEMANTIC_LSTM_EVALUATOR和JOINTLY_PREDICTION_PLANNING_EVALUATOR。
+对于直接预测，evaluator一般由LSTM结合语义地图直接给出一段较短的预测轨迹（3s），比如vehicle中的interaction 和caution，比如SEMANTIC_LSTM_EVALUATOR和JOINTLY_PREDICTION_PLANNING_EVALUATOR。
 
-对于间接预测evaluator一般由==MLP==给出各个行为意图的概率，比如JUNCTION_MLP_EVALUATOR和CRUISE_MLP_EVALUATOR和MLP_EVALUATOR。
+对于间接预测evaluator一般由MLP给出各个行为意图的概率，比如JUNCTION_MLP_EVALUATOR和CRUISE_MLP_EVALUATOR和MLP_EVALUATOR。
 
 ![](images/Apollo预测_image_22.png)
 
@@ -136,7 +136,7 @@ predictor中，对于短时域的轨迹进行扩充![](images/Apollo预测_image
 
 **free_move_predictor**
 
-首先介绍free_move_predictor，f==ree_move_predictor是自由移动评估器，主要是预测不在路上的所有类型的障碍物以及行人==，之前行人通过pedestrian_interaction_evaluator评估之后，只有2s的预测轨迹，后面会通过free_move_predictor补充6s的轨迹，一共预测8s。free_move_predictor是通过当前的速度和朝向拟合的8s轨迹，因此变化非常大，表现为预测线会甩来甩去的。
+首先介绍free_move_predictor，free_move_predictor是自由移动评估器，主要是预测不在路上的所有类型的障碍物以及行人，之前行人通过pedestrian_interaction_evaluator评估之后，只有2s的预测轨迹，后面会通过free_move_predictor补充6s的轨迹，一共预测8s。free_move_predictor是通过当前的速度和朝向拟合的8s轨迹，因此变化非常大，表现为预测线会甩来甩去的。
 
 ![](images/Apollo预测_image_25.png)
 

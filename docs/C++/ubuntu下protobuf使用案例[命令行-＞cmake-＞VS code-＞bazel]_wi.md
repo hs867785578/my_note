@@ -214,15 +214,15 @@ void PromptForAddress(tutorial::Person* person)
         cout << "Is this a mobile, home, or work phone? ";
         string type;
         getline(cin, type);
-        if (type == "mobile")
+        if (type  "mobile")
         {
             phone_number->set_type(tutorial::Person::MOBILE);
         }
-        else if (type == "home")
+        else if (type  "home")
         {
             phone_number->set_type(tutorial::Person::HOME);
         }
-         else if (type == "work")
+         else if (type  "work")
          {
             phone_number->set_type(tutorial::Person::WORK);
         }

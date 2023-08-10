@@ -217,7 +217,7 @@ void testForward(T && v){
     print(std::forward<T>(v)); //本文的重点
     print(std::move(v)); //永远调用右值版本的print
 
-    std::cout << "======================" << std::endl;
+    std::cout << "" << std::endl;
 }
 
 int main(int argc, char * argv[])
@@ -232,9 +232,9 @@ int main(int argc, char * argv[])
 Lvalue ref
 Lvalue ref
 Rvalue ref
-======================
+
 Lvalue ref
 Rvalue ref
 Rvalue ref
-======================
+
 ```

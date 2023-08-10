@@ -9,7 +9,7 @@ Linux中的.so文件 是动态链接的产物 
 共享库理解为提供各种功能函数的集合，对外提供标准的接口  
 **Linux中命名系统中共享库的规则**
 
-![](https://img-blog.csdn.net/20160110133732778?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)  
+![](https://img-blog.csdn.net/20160110133732778?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70/gravity/Center)  
 
 **主版本号：不同的版本号之间不兼容  
 次版本号：增量升级 向后兼容  

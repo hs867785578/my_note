@@ -547,13 +547,13 @@ data = data.cpu()
 ## 11 pytorch的部分生态
 
 
-a) ==**PyTorch Lightning==:** 基于PyTorch的轻量级高级计算框架，相当于PyTorch版本的Keras框架；
+a) **PyTorch Lightning:** 基于PyTorch的轻量级高级计算框架，相当于PyTorch版本的Keras框架；
 
 b) **Detectron2:** 由Facebook AI发布的下一代目标检测框架；
 
-c) ==**Transformers==:** 基于PyTorch的自然语言处理SOTA模型库；
+c) **Transformers:** 基于PyTorch的自然语言处理SOTA模型库；
 
-d) ==**PyTorch Geometric==:** 基于PyTorch的图神经网络深度学习扩展库，其对常见的图神经网络和数据集都进行了集成；
+d) **PyTorch Geometric:** 基于PyTorch的图神经网络深度学习扩展库，其对常见的图神经网络和数据集都进行了集成；
 
 e) **PyTorch3D:** 基于PyTorch将深度学习与3D结合的框架；
 

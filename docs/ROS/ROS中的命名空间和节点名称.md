@@ -74,7 +74,7 @@ ros::Publisher person_info_pub = n.advertise<learning_topic::Person>("/person_in
 
 补充demo
 ```cpp
-// launch 文件中 ns=="node_namespace"
+// launch 文件中 ns"node_namespace"
 ros::init(argc, argv, "node_name"); // node name
 ros::NodeHandle n; //n 命名空间为/node_namespace
 ros::NodeHandle n1("sub"); // n1命名空间为/node_namespace/sub

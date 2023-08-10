@@ -544,7 +544,7 @@ sudo cpan Unicode::GCString
 
 
 ```json
-    // ======================== LaTeX 设置 BEGIN  ========================
+    //  LaTeX 设置 BEGIN  
     // bibtex 格式
     "latex-workshop.bibtex-format.tab": "tab",
     // 自动编译，全部关闭，当且仅当你认为有需要的时候才会去做编译
@@ -652,7 +652,7 @@ sudo cpan Unicode::GCString
         "*.bcf",
         "*.run.xml",
     ],
-    // ======================== LaTeX 设置 END ========================
+    //  LaTeX 设置 END 
 ```
 
 ## 8 settings.json
@@ -788,7 +788,7 @@ sudo cpan Unicode::GCString
     "C_Cpp.default.cppStandard": "c++17",
     "editor.cursorSurroundingLines": 15,
     "cmake.configureOnEdit": false,
-    // ======================== LaTeX 设置 BEGIN  ========================
+    //  LaTeX 设置 BEGIN  
     // bibtex 格式
     "latex-workshop.bibtex-format.tab": "tab",
     // 自动编译，全部关闭，当且仅当你认为有需要的时候才会去做编译
@@ -896,7 +896,7 @@ sudo cpan Unicode::GCString
         "*.bcf",
         "*.run.xml",
     ],
-    // ======================== LaTeX 设置 END ========================
+    //  LaTeX 设置 END 
 }
 ```
 

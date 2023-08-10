@@ -67,7 +67,7 @@ template<class T>
 		{
 			if (_ptr != sp._ptr) {
         		//拷贝赋值时，=左边计数-1，=右边计数+1
-				if (--(*_pcount) == 0){
+				if (--(*_pcount)  0){
 					delete _pcount;
 					delete _ptr;
 				}
@@ -91,7 +91,7 @@ template<class T>
 
 		~shared_ptr()
 		{   //析构时，计数-1，然后判断：如果引用计数为0才删除指向资源
-			if (--(*_pcount) == 0 && _ptr) {
+			if (--(*_pcount)  0 && _ptr) {
 				delete _pcount;
 				delete _ptr;
 			}
@@ -195,7 +195,7 @@ weak_ptr 不是一个RALL智能指针，它不参与资源的管理，他是专�
 			return *this;
 		}
 		
-		bool expired() const  { return *_pcount == 0; }
+		bool expired() const  { return *_pcount  0; }
 		
 		shared_ptr<T> lock()  {
 		if (expired()) { 
