@@ -33,6 +33,6 @@ source是在当前进程（终端）下执行脚本。source test.sh 等价于 
 执行./test.sh这个命令时（先用unset test删除环境变量），会基于当前窗口shell进程，**创建一个子进程**，test.sh内容是在子进程中执行并生效，**test.sh中的env命令显示的是子进程的环境变量**，子进程中确实添加了test=666。
 
 **但此时再用命令env查看环境变量（此时是父进程），里边没有test=666变量**
-![[images/source、bash、sh、.的区别_image_1.png]]
+![](images/source、bash、sh、.的区别_image_1.png)
 
 sh 、bash命令与./ 一样，都是创建子进程。只不过这两个专用于执行sh脚本，而./命令可用于所有可执行文件（sh、bin文件）
