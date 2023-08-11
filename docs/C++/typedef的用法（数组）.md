@@ -5,7 +5,7 @@
 
 - 其次，对于语句“int(\*p2)[5]”，“()”的优先级比“[]”高，“\*”号和 p2 构成一个指针的定义，指针变量名为 p2，而 int 修饰的是数组的内容，即数组的每个元素。也就是说，p2 是一个指针，它指向一个包含 5 个 int 类型数据的数组，如图 2 所示。很显然，它是一个**数组指针**
 
-# 数组
+## 数组
 typedef <元素类型关键字> <数组类型名>[<常量表达式>];
 
 ```cpp
@@ -37,7 +37,7 @@ arrp10  ap;    // ap是具有十个元素的指针数组，每个指针指向具
 ```
 
 ```cpp
-//##### .定义指向包含10个int变量的数组的指针类型
+//###### .定义指向包含10个int变量的数组的指针类型
 typedef int (* pints)[10];
 int main()
 {
@@ -51,7 +51,7 @@ int main()
 ```
 
 ```cpp
-##### 定义包含10个int指针的数组类型
+###### 定义包含10个int指针的数组类型
 typedef int * pInts[10];
 int main()
 {
@@ -66,7 +66,7 @@ int main()
 5 6 7 8 0 0 0 0 0 0
 ```
 
-# 函数指针
+## 函数指针
 
 ```cpp
 typedef void*(*Fun)(int,int);
@@ -76,11 +76,11 @@ using P = void*(*)(int a);//等价上一条
 这里将返回类型为void \*，入参为int的函数类型命名为Fun，
 
 
-# 普通用法
+## 普通用法
 ```cpp
 typedef int my_int;
 typedef int* my_int_point;
 ```
 
-# using代替typedef
+## using代替typedef
 ![](images/typedef的用法（数组）_image_1.png)

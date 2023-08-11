@@ -1,17 +1,17 @@
 using的四种用法：
 
-# 1. 声明命名空间
+##  1. 声明命名空间
 
 using namespace std;
 或者
 using std::cout;
 
 
-# 2. 类型别名
+##  2. 类型别名
 
 using a = int
 
-# 3. 改变子类中的父类（成员变量、成员函数、类型声明）的访问权限
+##  3. 改变子类中的父类（成员变量、成员函数、类型声明）的访问权限
 
 ```cpp
 class T5Base {
@@ -42,7 +42,7 @@ T5Derived::Type b{1,2,3}//error,private继承使Type变为了private。通过::�
 
 同样的，对于基类中的成员函数 test1()，在private继承后变为 private，T5Derived 的对象同样无法访问，通过 using T5Base::test1 就可以使用了。
 
-# 4.在模板中使用类型别名（代替typedef）
+##  4.在模板中使用类型别名（代替typedef）
 
 ```cpp
 //方法一 不使用using，需要先定义一个类，来使用模板别名
@@ -72,7 +72,7 @@ using map = std::map<std::string, int>;
 typedef int(*Functype)(int, int); //typedef 定义函数指针
 using Functype = int(*)(int, int);
 ```
-# 建议：
+##  建议：
 - 所有的继承都是用public继承，这样不会改变权限。
 - 类中的using 声明类型都放到public中，是外界能够访问。
 - 

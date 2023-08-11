@@ -1,10 +1,10 @@
 action通信
 
-# 1 概述
+## 1 概述
 
 action通信和service通信类似，其实现模型也包含请求和响应，但是server端可以实时向client反馈处理进度，适用于server处理时间较长的场景。
 
-# 2 消息格式
+## 2 消息格式
 
 XXX.action
 
@@ -21,7 +21,7 @@ int32 result
 float64 progress_bar
 ```
 
-# 3 编译action消息，生成头文件
+## 3 编译action消息，生成头文件
 
 **CMakeLists.txt**
 
@@ -54,12 +54,12 @@ generate_messages(
 ```
 catkin_package(
 
-#  INCLUDE_DIRS include
-#  LIBRARIES demo04_action
+##  INCLUDE_DIRS include
+##  LIBRARIES demo04_action
 
  CATKIN_DEPENDS roscpp rospy std_msgs actionlib actionlib_msgs
 
-#  DEPENDS system_lib
+##  DEPENDS system_lib
 
 )
 ```
@@ -78,7 +78,7 @@ Python 调用的文件(.../工作空间/devel/lib/python3/dist-packages/包名/m
 
 
 
-# 4 server端实现
+## 4 server端实现
 
 ```cpp
 #include "ros/ros.h"
@@ -156,7 +156,7 @@ int main(int argc, char *argv[])
 
 ```
 
-# 5 clinet端
+## 5 clinet端
 
 ```cpp
 #include "ros/ros.h"

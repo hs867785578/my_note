@@ -1,15 +1,15 @@
 apollo的安装手册
-# 源码安装(目前源码安装不支持场景同步)
+## 源码安装(目前源码安装不支持场景同步)
 
 更新时间：2022-11-30
 
 本手册旨在帮助用户重新安装 **Apollo 8.0** 系统环境及 **Apollo 8.0** 源码 运行软件。
 
-## [](https://apollo.baidu.com/Apollo-Homepage-Document/Apollo_Doc_CN_8_0/%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85#%E6%AD%A5%E9%AA%A4%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85-linux-%E7%B3%BB%E7%BB%9F)步骤一：安装 Linux 系统
+### [](https://apollo.baidu.com/Apollo-Homepage-Document/Apollo_Doc_CN_8_0/%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85#%E6%AD%A5%E9%AA%A4%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85-linux-%E7%B3%BB%E7%BB%9F)步骤一：安装 Linux 系统
 
 Apollo 软件系统依赖于 Linux 操作系统运行，而 Linux 操作系统种类繁多，且又分为服务器版本和桌面版本，这里我们选择当下比较流行的 Ubuntu 桌面操作系统的 64 位版本。安装 Ubuntu 18.04+ 的步骤，参见 [官方安装指南](https://ubuntu.com/tutorials/install-ubuntu-desktop)。
 
-## [](https://apollo.baidu.com/Apollo-Homepage-Document/Apollo_Doc_CN_8_0/%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85#%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89%E6%AD%A5%E9%AA%A4%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85-nvidia-gpu-%E9%A9%B1%E5%8A%A8)（可选）步骤二：安装 NVIDIA GPU 驱动
+### [](https://apollo.baidu.com/Apollo-Homepage-Document/Apollo_Doc_CN_8_0/%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85#%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89%E6%AD%A5%E9%AA%A4%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85-nvidia-gpu-%E9%A9%B1%E5%8A%A8)（可选）步骤二：安装 NVIDIA GPU 驱动
 
 **Apollo 8.0** 的一些模块的编译和运行需要依赖 NVIDIA GPU 环境（例如感知模块），如果您有编译和运行这类模块的需求，则需要安装 NVIDIA GPU 驱动。
 
@@ -57,7 +57,7 @@ Mon Jan 25 15:51:08 2021
 +-----------------------------------------------------------------------------+
 ```
 
-## [](https://apollo.baidu.com/Apollo-Homepage-Document/Apollo_Doc_CN_8_0/%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85#%E6%AD%A5%E9%AA%A4%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85-docker)步骤三：安装 docker
+### [](https://apollo.baidu.com/Apollo-Homepage-Document/Apollo_Doc_CN_8_0/%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85#%E6%AD%A5%E9%AA%A4%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85-docker)步骤三：安装 docker
 
 Apollo 8.0 依赖于 Docker 19.03+。要安装 Docker，参见 [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)。
 
@@ -70,7 +70,7 @@ sudo systemctl start docker && sudo systemctl enable docker
 
 您可以自由选择安装方式，安装之后，不要忘记执行 [Linux 上的后续操作说明](https://docs.docker.com/engine/install/linux-postinstall/)。更多内容，参见 [使用非 root 权限运行 docker](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) 和 [配置开机启动 docker](https://docs.docker.com/engine/install/linux-postinstall/#configure-docker-to-start-on-boot)。
 
-## [](https://apollo.baidu.com/Apollo-Homepage-Document/Apollo_Doc_CN_8_0/%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85#%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89%E6%AD%A5%E9%AA%A4%E5%9B%9B%EF%BC%9A%E5%AE%89%E8%A3%85-nvidia-container-toolkit)（可选）步骤四：安装 NVIDIA Container Toolkit
+### [](https://apollo.baidu.com/Apollo-Homepage-Document/Apollo_Doc_CN_8_0/%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85#%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89%E6%AD%A5%E9%AA%A4%E5%9B%9B%EF%BC%9A%E5%AE%89%E8%A3%85-nvidia-container-toolkit)（可选）步骤四：安装 NVIDIA Container Toolkit
 
 为了在容器内获得 GPU 支持，在安装完 docker 后需要安装 NVIDIA Container Toolkit。 运行以下命令安装 NVIDIA Container Toolkit：
 
@@ -90,7 +90,7 @@ sudo systemctl restart docker
 
 安装完毕后，可以在**APOLLO容器内**输入`nvidia-smi`来校验 NVIDIA GPU 在容器内是否能正常运行（详见步骤五）。
 
-## [](https://apollo.baidu.com/Apollo-Homepage-Document/Apollo_Doc_CN_8_0/%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85#%E6%AD%A5%E9%AA%A4%E4%BA%94%EF%BC%9A%E4%B8%8B%E8%BD%BD%E5%B9%B6%E7%BC%96%E8%AF%91-apollo-%E6%BA%90%E7%A0%81)步骤五：下载并编译 Apollo 源码
+### [](https://apollo.baidu.com/Apollo-Homepage-Document/Apollo_Doc_CN_8_0/%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85#%E6%AD%A5%E9%AA%A4%E4%BA%94%EF%BC%9A%E4%B8%8B%E8%BD%BD%E5%B9%B6%E7%BC%96%E8%AF%91-apollo-%E6%BA%90%E7%A0%81)步骤五：下载并编译 Apollo 源码
 
 1. 安装 git 并将源码 clone 下来：
     
@@ -131,7 +131,7 @@ sudo systemctl restart docker
     如果您在步骤二和步骤四分别安装了 NVIDIA GPU 驱动和 NVIDIA Container Toolkit，您可以输入`nvidia-smi`来校验 NVIDIA GPU 在容器内是否能正常运行，如果成功，则会出现以下信息:
     
     ```text
-    root@in-dev-docker:/apollo_workspace# nvidia-smi 
+    root@in-dev-docker:/apollo_workspace## nvidia-smi 
     Wed Sep 14 11:43:13 2022       
     +-----------------------------------------------------------------------------+
     | NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
@@ -163,7 +163,7 @@ sudo systemctl restart docker
     ```
     
 
-## [](https://apollo.baidu.com/Apollo-Homepage-Document/Apollo_Doc_CN_8_0/%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85#%E6%AD%A5%E9%AA%A4%E5%85%AD%EF%BC%9A%E8%BF%90%E8%A1%8C-dreamview-%E6%A3%80%E9%AA%8C%E7%BC%96%E8%AF%91%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F)步骤六：运行 Dreamview 检验编译是否成功
+### [](https://apollo.baidu.com/Apollo-Homepage-Document/Apollo_Doc_CN_8_0/%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85#%E6%AD%A5%E9%AA%A4%E5%85%AD%EF%BC%9A%E8%BF%90%E8%A1%8C-dreamview-%E6%A3%80%E9%AA%8C%E7%BC%96%E8%AF%91%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F)步骤六：运行 Dreamview 检验编译是否成功
 
 1. 进入 Apollo 容器环境。
     

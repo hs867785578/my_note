@@ -1,12 +1,12 @@
 其中spdlog是一个头文件库，不需要链接。
 matplotlib-cpp需要调用python，所以需要cmake中配置python
-# 新建一个文件夹third_part
+##  新建一个文件夹third_part
 
 把spdlog和matplotlib-cpp clone下来
 ![](images/C++使用spdlog和matplotlib-cpp_image_1.png)
 
 
-# 配置cmake
+##  配置cmake
 
 ```cmake
 cmake_minimum_required(VERSION 3.0.0)

@@ -1,9 +1,9 @@
 插件管理
-# 1 概述
+## 1 概述
 
 **pluginlib**是一个c++库， 用来从一个ROS功能包中加载和卸载插件(plugin)。插件是指从运行时库中动态加载的类。通过使用Pluginlib，不必将某个应用程序显式地链接到包含某个类的库，Pluginlib可以随时打开包含类的库，而不需要应用程序事先知道包含类定义的库或者头文件。
 
-# 2 使用方式
+## 2 使用方式
 **需求:**
 
 以插件的方式实现正多边形的相关计算。
@@ -29,7 +29,7 @@
 7. 使用插件;
     
 8. 执行。
-## 2.1 创建基类
+### 2.1 创建基类
 在 xxx/include/xxx下新建C++头文件: polygon_base.h，所有的插件类都需要继承此基类，内容如下:
 
 ```cpp
@@ -53,7 +53,7 @@ namespace polygon_base
 ```
 **PS:**基类必须提供无参构造函数，所以关于多边形的边长没有通过构造函数而是通过单独编写的initialize函数传参。
 
-## 2.2 创建插件类
+### 2.2 创建插件类
 
 在 xxx/include/xxx下新建C++头文件:polygon_plugins.h，内容如下:
 ```cpp
@@ -111,7 +111,7 @@ namespace polygon_plugins
 #endif
 
 ```
-## 2.3 注册插件
+### 2.3 注册插件
 
 在 src 目录下新建 polygon_plugins.cpp 文件，内容如下:
 
@@ -128,7 +128,7 @@ PLUGINLIB_EXPORT_CLASS(polygon_plugins::Square, polygon_base::RegularPolygon)
 
 该文件会将两个衍生类注册为插件。
 
-## 2.4 构建插件库
+### 2.4 构建插件库
 
 ```cpp
 include_directories(include)
@@ -136,7 +136,7 @@ add_library(polygon_plugins src/polygon_plugins.cpp)
 
 ```
 
-## 2.5 配置xml
+### 2.5 配置xml
 
 功能包下新建文件:polygon_plugins.xml,内容如下:
 
@@ -154,7 +154,7 @@ add_library(polygon_plugins src/polygon_plugins.cpp)
 </library>
 ```
 
-## 2.6导出插件
+### 2.6导出插件
 
 package.xml文件中设置内容如下:
 
@@ -168,7 +168,7 @@ package.xml文件中设置内容如下:
 
 编译后，可以调用`rospack plugins --attrib=plugin xxx`命令查看配置是否正常，如无异常，会返回 .xml 文件的完整路径，这意味着插件已经正确的集成到了ROS工具链。
 
-## 2.7 使用插件
+### 2.7 使用插件
 
 src 下新建c++文件:polygon_loader.cpp，内容如下:
 
@@ -203,7 +203,7 @@ int main(int argc, char** argv)
 }
 ```
 
-## 2.8 执行
+### 2.8 执行
 
 修改CMakeLists.txt文件，内容如下:
 

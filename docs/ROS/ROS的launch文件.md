@@ -1,18 +1,18 @@
 launch文件
-# 1. rosparam 加载yaml定义的参数
+## 1. rosparam 加载yaml定义的参数
 
 ![](images/ROS的参数服务器_image_1.png)
 
-# 2.param标签来设置参数
+## 2.param标签来设置参数
 - 如果rosparam标签和param标签在node标签下，那么参数是私有命名空间：node_name/parma_name
 
 - 如果rosparam标签和param标签在node标签外，那么参数是全局命名空间：/parma_name
 
-# 3 node标签
+## 3 node标签
 
 `<node>`标签用于指定 ROS 节点，是最常见的标签，需要注意的是: roslaunch 命令不能保证按照 node 的声明顺序来启动节点(节点的启动是多进程的)
 
-#### 1.属性
+##### 1.属性
 
 - pkg="包名"
     
@@ -59,14 +59,14 @@ launch文件
     日志发送目标，可以设置为 log 日志文件，或 screen 屏幕,默认是 log
     
 
-#### 2.子级标签
+##### 2.子级标签
 
 - env 环境变量设置
     
 - remap 重映射话题名称（ from="xxx"原始话题名称 to="yyy"目标名称）
     
 
-#### 2.子级标签
+##### 2.子级标签
 
 - 无
     
@@ -74,11 +74,11 @@ launch文件
     
 - param 参数设置（非yaml文件，全局命名空间）
 
-# 4 include标签
+## 4 include标签
 
 `include`标签用于将另一个 xml 格式的 launch 文件导入到当前文件
 
-#### 1.属性
+##### 1.属性
 
 - file="$(find 包名)/xxx/xxx.launch"
     
@@ -89,17 +89,17 @@ launch文件
     在指定命名空间导入文件
     
 
-#### 2.子级标签
+##### 2.子级标签
 
 - env 环境变量设置
     
 - arg 将参数传递给被包含的文件
 
-# 5 group标签
+## 5 group标签
 
 `<group>`标签可以对节点分组，具有 ns 属性，可以让节点归属某个命名空间
 
-#### 1.属性
+##### 1.属性
 
 - ns="名称空间" (可选)
     
@@ -108,13 +108,13 @@ launch文件
     启动前，是否删除组名称空间的所有参数(慎用....此功能危险)
     
 
-#### 2.子级标签
+##### 2.子级标签
 
 - 除了launch 标签外的其他标签
 
-# 6 arg标签
+## 6 arg标签
  
-#### 1.属性
+##### 1.属性
 
 - name="参数名称"
     
@@ -129,11 +129,11 @@ launch文件
     参数说明
     
 
-#### 2.子级标签
+##### 2.子级标签
 
 - 无
 
-#### 3.示例
+##### 3.示例
 
 - launch文件传参语法实现,hello.lcaunch
     
@@ -149,7 +149,7 @@ launch文件
 roslaunch hello.launch xxx:=值
 ```
 
-# 2. 通过nodehandle来读取参数
+## 2. 通过nodehandle来读取参数
 
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200520112926567.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0tldmluX1hpZTg2,size_16,color_FFFFFF,t_70)  

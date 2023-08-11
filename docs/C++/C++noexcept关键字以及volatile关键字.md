@@ -1,13 +1,13 @@
 noexcept
 
-# noexcept
-## 1 noexcept作用
+## noexcept
+### 1 noexcept作用
 
 noexcept主要告诉编译器该函数不会抛出异常，可以帮助编译器优化。如果不加noexcept表示默认会抛出异常。
 
 使用方法：![](images/C++noexcept关键字以及volatile关键字_image_1.png)
 
-## 2noexcept的由来
+### 2noexcept的由来
 
 在C++11之前是没有noexcept的，只有throw。throw 关键字除了可以用在**函数体中抛出异常**，还可以用在**函数头和函数体之间，指明当前函数能够抛出的异常类型，这称为异常规范**，有些教程也称为异常指示符或异常列表。请看下面的例子：
 ![](images/C++noexcept关键字以及volatile关键字_image_2.png)
@@ -29,7 +29,7 @@ noexcept主要告诉编译器该函数不会抛出异常，可以帮助编译器
 
 所以 C++11 摒弃了 throw 异常规范，而引入了新的异常说明符 noexcept。
 
-## 3 C++11中的noexcept
+### 3 C++11中的noexcept
 
 加在函数明和函数体之间，表示一定不会出现异常，帮助编译器优化。
 此外noexcept是一个一元运算符，可以返回bool值。这样之前throw的无法捕捉函数内其他函数是否有异常的缺点就被解决了。
@@ -38,11 +38,11 @@ noexcept主要告诉编译器该函数不会抛出异常，可以帮助编译器
 
 ![](images/C++noexcept关键字以及volatile关键字_image_5.png)
 
-## 4 使用建议
+### 4 使用建议
 ![](images/C++noexcept关键字以及volatile关键字_image_6.png)
 
 
-# volatile
+## volatile
 
 volatile与const是相反的词
 

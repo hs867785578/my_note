@@ -1,6 +1,6 @@
 本文是Apollo项目系列文章中的一篇，会解析自动驾驶系统中最核心的模块 - 决策规划模块。
 
-# 前言
+## 前言
 
 Apollo系统中的Planning模块实际上是整合了决策和规划两个功能，该模块是自动驾驶系统中最核心的模块之一（另外三个核心模块是：**定位**，**感知**和**控制**）。
 
@@ -22,7 +22,7 @@ Apollo系统中的Planning模块实际上是整合了决策和规划两个功能
 
 - 获取代码时间：2019年1月24日
 
-# Apollo系统与Planning模块
+## Apollo系统与Planning模块
 
 下图是Apollo系统的整体架构图。从这幅图中我们可以看出，整个系统可以分为5层。从下至上依次是：
 
@@ -55,7 +55,7 @@ Planning模块负责整个车辆的驾驶决策，而驾驶决策需要根据当
 
 - 它的下游模块是控制模块。
 
-# 模块概述
+## 模块概述
 
 决策规划模块的主要责任是：**根据导航信息以及车辆的当前状态，在有限的时间范围内，计算出一条合适的轨迹供车辆行驶**。
 
@@ -69,7 +69,7 @@ Planning模块负责整个车辆的驾驶决策，而驾驶决策需要根据当
 
 4. ”合适的轨迹“有多个层次的含义。首先，”轨迹“不同于“路径”，“轨迹”不仅仅包含了行驶路线，还要包含每个时刻的车辆的速度，加速度，方向转向等信息。其次，这条轨迹必须是底层控制可以执行的。因为车辆在运动过程中，具有一定的惯性，车辆的转弯角度也是有限的。在计算行驶轨迹时，这些因素都要考虑。最后，从人类的体验上来说，猛加速，急刹车或者急转弯都会造成非常不好的乘坐体验，因此这些也需要考虑。这就是为什么决定规划模块需要花很多的精力来优化轨迹，Apollo系统中的实现自然也不例外。
 
-# 模块架构
+## 模块架构
 
 Apollo的之前版本，包括3.0都是用了相同的配置和参数规划不同的场景，这种方法虽然线性且实现简单，但不够灵活或用于特定场景。随着Apollo的成熟并承担不同的道路条件和驾驶用例，Apollo项目组采用了更加模块化、适用于特定场景和整体的方法来规划其轨迹。
 
@@ -91,7 +91,7 @@ Apollo 3.5中Planning模块的架构如下图所示：
 
 - 黄色框：这些框被包含在未来的场景和/或开发人员中，以便基于现实世界的驱动用例贡献他们自己的场景。
 
-# 整体Pipeline
+## 整体Pipeline
 
 有相关专业知识的人都会知道，决策规划模块的主体实现通常都是较为复杂的。
 
@@ -107,7 +107,7 @@ Apollo系统中的实现自然也不例外，这里先通过一幅图说明其�
 
 - `EM Planner`：下文中我们会看到，Apollo系统中内置了好几个Planner，但目前默认使用的是EM Planner，这也是专门为开放道路设计的。该模块的实现可以说是整个Planning模块的灵魂所在。因此其算法值得专门用另外一篇文章来讲解。读者也可以阅读其官方论文来了解：[Baidu Apollo EM Motion Planner](https://www.oschina.net/action/GoToLink?url=https%3A%2F%2Farxiv.org%2Fabs%2F1807.08048)。
 
-# 基础数据结构
+## 基础数据结构
 
 Planning模块是一个比较大的模块，因此这其中有很多的数据结构需要在内部实现中流转。
 
@@ -117,7 +117,7 @@ Planning模块是一个比较大的模块，因此这其中有很多的数据结
 
 - `common`目录：这里是C++定义的数据结构。很显然，通过C++定义数据结构的好处是这些类的实现中可以包含一定的处理逻辑。
 
-## proto
+### proto
 
 proto目录下的文件如下所示：
 
@@ -163,7 +163,7 @@ apollo/modules/planning/proto/
 
 - 可以方便的从文本文件导入和导出。下文将看到，Planning模块中有很多配置文件就是和这里的proto结构相对应的。
 
-## common
+### common
 
 common目录下的头文件如下：
 
@@ -236,7 +236,7 @@ Planning全局相关的信息，例如：是否正在变道。这是一个[单�
 > 你暂时不用记住所有这些类，在后面的文章中，我们会逐渐知道它们的作用。
 >
 
-# 模块配置
+## 模块配置
 
 在下文中大家会发现，Planning模块中有很多处的逻辑是通过配置文件控制的。通过将这部分内容从代码中剥离，可以方便的直接对配置文件进行调整，而不用编译源代码。这对于系统调试和测试来说，是非常方便的。
 
@@ -269,9 +269,9 @@ apollo/modules/planning/conf/
 
 读者暂时不用太在意这些文件的内容。随着对于Planning模块实现的熟悉，再回过来看这些配置文件，就很容易理解每个配置文件的作用了。下文中，对一些关键内容我们会专门提及。
 
-# Planner
+## Planner
 
-## Planning与Planner
+### Planning与Planner
 
 Apollo 3.5废弃了原先的ROS，引入了新的运行环境：[Cyber RT](https://www.oschina.net/action/GoToLink?url=https%3A%2F%2Fgithub.com%2FApolloAuto%2Fapollo%2Ftree%2Fmaster%2Fcyber)。
 
@@ -320,7 +320,7 @@ void RunOnce(const LocalView& local_view, ADCTrajectory* const trajectory_pb) ov
 
 方法的注释已经说明得很清楚了：这是Planning模块的主体逻辑，会被timer以固定的间隔调用。每次调用就是一个规划周期。
 
-## PlanningCycle
+### PlanningCycle
 
 很显然，接下来我们重点要关注的就是`StdPlanning::RunOnce`方法的逻辑。该方法的实现较长，这里就不贴出代码了，而是通过一幅图描述其中的逻辑：
 
@@ -328,7 +328,7 @@ void RunOnce(const LocalView& local_view, ADCTrajectory* const trajectory_pb) ov
 
 请读者尽可能仔细的关注一下这幅图，因为它涵盖了下文我们要讨论的所有内容。
 
-## Planner概述
+### Planner概述
 
 在最新的Apollo源码中，一共包含了5个Planner的实现。它们的结构如下图所示：
 
@@ -361,7 +361,7 @@ Apollo公开课里对两个较为成熟的Planner：EM Planner和Lattice Planner
 
 后面的内容中，我们会尽可能集中在EM Planner算法上。对于Lattice Planner感兴趣的读者可以继续阅读这篇文章：[《Lattice Planner规划算法》](https://www.oschina.net/action/GoToLink?url=https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FYDIoVf20kybu8JEUY3GZWg)。
 
-## Planner配置
+### Planner配置
 
 Planner的配置文件路径是在`planning_gflags.cc`中指定的，相关内容如下：
 
@@ -396,7 +396,7 @@ DEFINE_bool(open_space_planner_switchable, false, "true for std planning being a
 
 ```
 
-## PublicRoadPlanner
+### PublicRoadPlanner
 
 `PublicRoadPlanner`是目前默认的Planner，它实现了EM（Expectation Maximization）算法。
 
@@ -445,13 +445,13 @@ struct LocalView {
 
 Scenario是Apollo 3.5上新增的驾驶场景功能。前面在模块架构中我们已经提到过，接下来我们就详细看一下这方面内容。
 
-# Scenario
+## Scenario
 
-## 场景分类
+### 场景分类
 
 Apollo3.5聚焦在三个主要的驾驶场景，即：
 
-### 车道保持
+#### 车道保持
 
 车道保持场景是默认的驾驶场景，它不仅仅包含单车道巡航。同时也包含了：
 
@@ -463,7 +463,7 @@ Apollo3.5聚焦在三个主要的驾驶场景，即：
 
 ![解析百度Apollo之决策规划模块 - osc_rwo4fnf2的个人空间 - OSCHINA - _image_8.png](images/解析百度Apollo之决策规划模块%20-%20osc_rwo4fnf2的个人空间%20-%20OSCHINA%20-%20_image_8.png)
 
-### Side Pass
+#### Side Pass
 
 在这种情况下，如果在自动驾驶车辆（ADC）的车道上有静态车辆或静态障碍物，并且车辆不能在不接触障碍物的情况下安全地通过车道，则执行以下策略：
 
@@ -475,7 +475,7 @@ Apollo3.5聚焦在三个主要的驾驶场景，即：
 
 ![解析百度Apollo之决策规划模块 - osc_rwo4fnf2的个人空间 - OSCHINA - _image_9.png](images/解析百度Apollo之决策规划模块%20-%20osc_rwo4fnf2的个人空间%20-%20OSCHINA%20-%20_image_9.png)
 
-### 停止标识
+#### 停止标识
 
 停止标识有两种分离的驾驶场景：
 
@@ -487,7 +487,7 @@ Apollo3.5聚焦在三个主要的驾驶场景，即：
 
 ![解析百度Apollo之决策规划模块 - osc_rwo4fnf2的个人空间 - OSCHINA - _image_11.png](images/解析百度Apollo之决策规划模块%20-%20osc_rwo4fnf2的个人空间%20-%20OSCHINA%20-%20_image_11.png)
 
-## 场景实现
+### 场景实现
 
 场景的实现主要包含三种类：
 
@@ -497,7 +497,7 @@ Apollo3.5聚焦在三个主要的驾驶场景，即：
 
 - `Stage`：如上面所说，一个Scenario可能有多个Stage对象。场景功能实现的主体逻辑通常是在`Stage::Process`方法中。
 
-## 场景配置
+### 场景配置
 
 所有场景都是通过配置文件来进行配置的。很显然，首先需要在proto文件夹中定义其结构。
 
@@ -522,7 +522,7 @@ enum ScenarioType {
 
 ```
 
-## 场景注册
+### 场景注册
 
 前面我们已经提到，`ScenarioManager`负责场景的注册。实际上，注册的方式就是读取配置文件：
 
@@ -530,7 +530,7 @@ enum ScenarioType {
 
 配置文件在上文中已经全部列出。很显然，这里读取的配置文件位于`/modules/planning/conf/scenario`目录下。
 
-## 场景确定
+### 场景确定
 
 下面这个函数用来确定当前所处的场景。前面我们已经说了，确定场景的依据是`Frame`数据。
 
@@ -538,11 +538,11 @@ enum ScenarioType {
 
 这里面的逻辑就不过多说明了，读者可以自行阅读相关代码。
 
-## 场景配置
+### 场景配置
 
 场景的配置文件都位于`/modules/planning/conf/scenario`目录下。在配置场景的时候，还会同时为场景配置相应的Task对象。关于这部分内容，在下文讲解Task的时候再一起看。
 
-# Frenet坐标系
+## Frenet坐标系
 
 大家最熟悉的坐标系应该是横向和纵向垂直的笛卡尔坐标系。但是在自动驾驶领域，最常用的却是Frenet坐标系。基于Frenet坐标系的动作规划方法由于是由BMW的[Moritz Werling提出的](https://www.oschina.net/action/GoToLink?url=https%3A%2F%2Fwww.researchgate.net%2Fprofile%2FMoritz_Werling%2Fpublication%2F224156269_Optimal_Trajectory_Generation_for_Dynamic_Street_Scenarios_in_a_Frenet_Frame%2Flinks%2F54f749df0cf210398e9277af%2FOptimal-Trajectory-Generation-for-Dynamic-Street-Scenarios-in-a-Frenet-Frame.pdf)。
 
@@ -556,7 +556,7 @@ enum ScenarioType {
 
 ![解析百度Apollo之决策规划模块 - osc_rwo4fnf2的个人空间 - OSCHINA - _image_13.png](images/解析百度Apollo之决策规划模块%20-%20osc_rwo4fnf2的个人空间%20-%20OSCHINA%20-%20_image_13.png)
 
-# ReferenceLine
+## ReferenceLine
 
 下面这幅图是Apollo公开课上对于Planning模块架构的描述。
 
@@ -566,19 +566,19 @@ enum ScenarioType {
 
 在下面的内容，我们把详细代码贴出来看一下。
 
-## ReferenceLineProvider
+### ReferenceLineProvider
 
 ReferenceLine由ReferenceLineProvider专门负责生成。这个类的结构如下：
 
 ![解析百度Apollo之决策规划模块 - osc_rwo4fnf2的个人空间 - OSCHINA - _image_15.png](images/解析百度Apollo之决策规划模块%20-%20osc_rwo4fnf2的个人空间%20-%20OSCHINA%20-%20_image_15.png)
 
-### 创建ReferenceLine
+#### 创建ReferenceLine
 
 ReferenceLine是在`StdPlanning::InitFrame`函数中生成的，相关代码如下：
 
 `Status StdPlanning::InitFrame(const uint32_t sequence_num, const TrajectoryPoint& planning_start_point, const double start_time, const VehicleState& vehicle_state, ADCTrajectory* output_trajectory) { frame_.reset(new Frame(sequence_num, local_view_, planning_start_point, start_time, vehicle_state, reference_line_provider_.get(), output_trajectory)); ... std::list<ReferenceLine> reference_lines; std::list<hdmap::RouteSegments> segments; if (!reference_line_provider_->GetReferenceLines(&reference_lines, &segments)) { `
 
-## ReferenceLineInfo
+### ReferenceLineInfo
 
 在ReferenceLine之外，在common目录下还有一个结构：ReferenceLineInfo，这个结构才是各个模块实际用到数据结构，它其中包含了ReferenceLine，但还有其他更详细的数据。
 
@@ -590,7 +590,7 @@ ReferenceLineInfo不仅仅包含了参考线信息，还包含了车辆状态，
 
 `bool Stage::ExecuteTaskOnReferenceLine( const common::TrajectoryPoint& planning_start_point, Frame* frame) { for (auto& reference_line_info : *frame->mutable_reference_line_info()) { ... if (reference_line_info.speed_data().empty()) { *reference_line_info.mutable_speed_data() = SpeedProfileGenerator::GenerateFallbackSpeedProfile(); reference_line_info.AddCost(kSpeedOptimizationFallbackCost); reference_line_info.set_trajectory_type(ADCTrajectory::SPEED_FALLBACK); } else { reference_line_info.set_trajectory_type(ADCTrajectory::NORMAL); } DiscretizedTrajectory trajectory; if (!reference_line_info.CombinePathAndSpeedProfile( planning_start_point.relative_time(), planning_start_point.path_point().s(), &trajectory)) { AERROR << "Fail to aggregate planning trajectory."; return false; } reference_line_info.SetTrajectory(trajectory); reference_line_info.SetDrivable(true); return true; } return true; } `
 
-## Smoother
+### Smoother
 
 为了保证车辆轨迹的平顺，参考线必须是经过平滑的，目前Apollo中包含了这么几个Smoother用来做参考线的平滑：
 
@@ -602,7 +602,7 @@ ReferenceLineInfo不仅仅包含了参考线信息，还包含了车辆状态，
 
 - [Eigen](https://www.oschina.net/action/GoToLink?url=http%3A%2F%2Feigen.tuxfamily.org%2Findex.php%3Ftitle%3DMain_Page)
 
-# TrafficRule
+## TrafficRule
 
 行驶在城市道路上的自动驾驶车辆必定受到各种交通规则的限制。在正常情况下，车辆不应当违反交通规则。
 
@@ -612,7 +612,7 @@ ReferenceLineInfo不仅仅包含了参考线信息，还包含了车辆状态，
 
 ![解析百度Apollo之决策规划模块 - osc_rwo4fnf2的个人空间 - OSCHINA - _image_17.png](images/解析百度Apollo之决策规划模块%20-%20osc_rwo4fnf2的个人空间%20-%20OSCHINA%20-%20_image_17.png)
 
-## TrafficRule配置
+### TrafficRule配置
 
 交通条例的生效并非是一成不变的，因此自然就需要有一个配置文件来进行配置。交通规则的配置文件是：`modules/planning/conf/traffic_rule_config.pb.txt`。
 
@@ -626,7 +626,7 @@ config: { rule_id: SIGNAL_LIGHT enabled: true signal_light { stop_distance: 1.0 
 
 ```
 
-## TrafficDecider
+### TrafficDecider
 
 TrafficDecider是交通规则处理的入口，它负责读取上面这个配置文件，并执行交通规则的检查。在上文中我们已经看到，交通规则的执行是在`StdPlanning::RunOnce`中完成的。具体执行的逻辑如下：
 
@@ -642,7 +642,7 @@ TrafficDecider是交通规则处理的入口，它负责读取上面这个配置
 
 4. 在ReferenceLineInfo上合并处理所有交通规则最后的结果。
 
-# Task
+## Task
 
 一直到目前最新的Apollo 3.5版本为止，Planning模块最核心的算法就是其EM Planner（实现类是`PublicRoadPlanner`），而EM Planner最核心的就是其决策器和优化器。
 
@@ -658,7 +658,7 @@ Planning中这部分逻辑实现位于`tasks`目录下，无论是决策器还�
 
 有兴趣的读者可以通过阅读子类的`Execute`方法来了解算法实现。
 
-## Task配置
+### Task配置
 
 上文中我们已经提到，场景和Task配置是在一起的。这些配置在下面这些文件中：
 
@@ -683,13 +683,13 @@ stage_type: LANE_FOLLOW_DEFAULT_STAGE stage_config: { stage_type: LANE_FOLLOW_DE
 
 这里的`task_type`与Task实现类是一一对应的。
 
-## Task读取
+### Task读取
 
 在构造Stage对象的时候，会读取这里的配置文件，然后创建相应的Task：
 
 `Stage::Stage(const ScenarioConfig::StageConfig& config) : config_(config) { name_ = ScenarioConfig::StageType_Name(config_.stage_type()); next_stage_ = config_.stage_type(); std::unordered_map<TaskConfig::TaskType, const TaskConfig*, std::hash<int>> config_map; for (const auto& task_config : config_.task_config()) { config_map[task_config.task_type()] = &task_config; } for (int i = 0; i < config_.task_type_size(); ++i) { auto task_type = config_.task_type(i); CHECK(config_map.find(task_type) != config_map.end()) << "Task: " << TaskConfig::TaskType_Name(task_type) << " used but not configured"; auto ptr = TaskFactory::CreateTask(*config_map[task_type]); task_list_.push_back(ptr.get()); tasks_[task_type] = std::move(ptr); } } `
 
-## Task执行
+### Task执行
 
 Task的执行是在`Stage::Process`中，通过`ExecuteTaskOnReferenceLine`完成的。
 
@@ -701,7 +701,7 @@ Task的执行是在`Stage::Process`中，通过`ExecuteTaskOnReferenceLine`完�
 
 `bool Stage::ExecuteTaskOnReferenceLine( const common::TrajectoryPoint& planning_start_point, Frame* frame) { for (auto& reference_line_info : *frame->mutable_reference_line_info()) { ... auto ret = common::Status::OK(); for (auto* task : task_list_) { ret = task->Execute(frame, &reference_line_info); if (!ret.ok()) { AERROR << "Failed to run tasks[" << task->Name() << "], Error message: " << ret.error_message(); break; } } ... } return true; } `
 
-# 参考资料与推荐读物
+## 参考资料与推荐读物
 
 - [ApolloAuto/apollo](https://www.oschina.net/action/GoToLink?url=https%3A%2F%2Fgithub.com%2FApolloAuto%2Fapollo)
 

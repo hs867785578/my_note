@@ -1,17 +1,17 @@
 参考[官方文档](https://github.com/commaai/openpilot/tree/master/tools/sim#openpilot-in-simulator)
 
-# 1 测试系统
+## 1 测试系统
 
-## 软件
+### 软件
 - ubuntu 20.04
 - docker 24.0
 - carla 0.9.13
-## 硬件
+### 硬件
 - i7-10700
 - nvidia rtx2060
 - 500G固态
 
-# 2步骤
+## 2步骤
 
 1. openpilot clone到本地
 ```bash
