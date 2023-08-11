@@ -12,7 +12,7 @@
 
 
 
-![[images/C++中的对象模型_image_5.png]]
+![](images/C++中的对象模型_image_5.png)
 
 # 2 继承下的对象布局（非多态）
 
@@ -20,7 +20,7 @@
 
 ## 2.1 单继承
 
-![[images/C++中的对象模型_image_6.png]]
+![](images/C++中的对象模型_image_6.png)
 ![](images/C++中的对象模型_image_7.png)
 
 

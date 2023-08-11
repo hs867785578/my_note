@@ -218,7 +218,7 @@ weak_ptr 不是一个RALL智能指针，它不参与资源的管理，他是专�
 
 为此，shared_ptr提供了 定制删除器，我们可以在构造的时候作为参数传入。如果我们不传参，就默认使用delete
 
-![[images/C++智能指针_image_2.png]]
+![](images/C++智能指针_image_2.png)
 
 ```cpp
 

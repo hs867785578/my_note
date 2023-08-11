@@ -12,7 +12,7 @@ ROS中的命名空间的设定和ROS1基本一致，~表示私有，/表示全�
 [private nodehandles in ros 2 - ROS Answers: Open Source Q&A Forum --- ROS 2 中的私有节点句柄 - ROS Answers： Open Source Q&A Forum](https://answers.ros.org/question/294483/private-nodehandles-in-ros-2/)
 
 
-![[images/Pasted image 20230725174310.png]]
+![](images/Pasted%20image%2020230725174310.png)
 
 
 

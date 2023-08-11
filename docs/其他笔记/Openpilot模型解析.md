@@ -116,7 +116,7 @@ pid.py
 
 使用PID计算出需要发给车辆的执行器的加速度后，controlsd会把LongControl给出的加速等车辆控制，调用每个车型独立的控制实现代码，selfdrive/car/XXXX/carcontroller.py，如下图是现代汽车的实现，会根据accel生成CAN命令并发送给执行器，**这里并没有直接产生油门和刹车控制的CAN命令，而是计算出发给ACC控制器的CAN命令，由它再去操作油门和刹车**。
 
-![[images/Openpilot模型解析_image_14.png]]
+![](images/Openpilot模型解析_image_14.png)
 
 hyundai现代汽车的车辆控制实现
 

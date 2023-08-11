@@ -80,7 +80,7 @@ Scoure =Q.K
 BERT用到了transformer的encoder架构（没有文本生成的能力）
 GPT用的是decoder架构，有文本生成的能力（得益于mask attention）
 
-![[images/Transformer的理解与实践_image_11.png]]
+![](images/Transformer的理解与实践_image_11.png)
 
 
 ### 11.大模型的发展

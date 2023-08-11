@@ -213,7 +213,7 @@ Python的代码风格要求代码一行不超过79字符，所以我们可以给
 ### 4vscode快捷键
 
 ![](images/vscode_image_4.png)
-![[images/vscode_image_5.png]]
+![](images/vscode_image_5.png)
 **vim配置**
 ```json
     "vim.handleKeys": {
