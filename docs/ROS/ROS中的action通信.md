@@ -68,14 +68,15 @@ catkin_package(
 
 msg文件(.../工作空间/devel/share/包名/msg/xxx.msg):
 
-![](Pasted%20image%2020230727144503.png)
+
 
 C++ 调用的文件(.../工作空间/devel/include/包名/xxx.h):
 
-![](Pasted%20image%2020230727144523.png)
+
 
 Python 调用的文件(.../工作空间/devel/lib/python3/dist-packages/包名/msg/xxx.py):
-![](Pasted%20image%2020230727144546.png)
+
+
 
 # 4 server端实现
 
