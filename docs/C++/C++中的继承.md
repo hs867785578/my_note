@@ -1,4 +1,5 @@
-、1. **C++中的继承分为public、protected、private，三种继承关系的继承关系如下图所示**
+
+1. **C++中的继承分为public、protected、private，三种继承关系的继承关系如下图所示**
 ![](images/C++中的继承_image_1.png)
 
 1. **要想实现多态只能用public继承，如下图所示**
