@@ -87,7 +87,5 @@ trainer = pl.Trainer(gpus=4, num_nodes=3, strategy="ddp") # 使用3台机器，�
 另外PL不仅支持常见的`dp`、`ddp`、`deepspeed`等，甚至还可以通过`DDPStrategy()`自定义`strategy`，有更高级的需求可以查阅官方文档：
 https://link.zhihu.com/?target=https%3A//pytorch-lightning.readthedocs.io/en/latest/accelerators/gpu_expert.html
 ![](images/学会使用pytorch%20lighting_image_1.png)
- 
-<img src="images/学会使用pytorch%20lighting_image_1.png" width = "80%" height = "" align="center" />
 
 ![](images/学会使用pytorch%20lighting_image_2.png)
