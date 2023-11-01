@@ -47,7 +47,7 @@ make -j7
 sudo make install
 ```
 ### qpoases
-## 4.demo 代码
+## 4.demo 代码（nlp、qp）
 ```cpp
 # 声明要求的 cmake 最低版本
 cmake_minimum_required(VERSION 3.0)

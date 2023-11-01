@@ -24,7 +24,6 @@ sudo make install -j
 ```
 export LD_LIBRARY_PATH=/opt/blasfeo/lib:/opt/hpipm/lib:$LD_LIBRARY_PATH
 ```
-
 ## 安装hpipm-cpp
 
 ```
@@ -35,7 +34,6 @@ cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j8
 sudo make install -j
 ```
-
 ## 使用
 
-见hpipm-cpp/example
+见hpipm-cpp/example(mpc、ocpqp)

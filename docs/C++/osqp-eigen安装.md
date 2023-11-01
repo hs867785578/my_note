@@ -30,4 +30,4 @@ make install
 
 ## 使用
 
-见osqp-eigen/example
+见osqp-eigen/example（mpc）
