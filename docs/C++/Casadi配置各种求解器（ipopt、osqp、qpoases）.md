@@ -11,7 +11,7 @@ git clone https://github.com/casadi/casadi.git -b main casadi
 
 ### ipopt的安装
 ```
-sudo apt install libipopt-dev
+sudo apt install coinor-libipopt-dev
 ```
 
 ### osqp的安装(0.6.0版本,casadi只支持0.6)
