@@ -26,3 +26,12 @@ synchronous mode是carla中client和server的同步。
 synchronous mode wait for control command是需要有一个控制指令传过来，carla才会更新一步。这个更精确
 
 ![](images/carla笔记_image_3.png)
+
+## 5 carla源码编译
+
+环境：ubuntu20.04、UE4（carla版本）、carla0.9.14
+
+注意：UE4一定要用carla特供版本，不然make launch时会报错（在0.9.12的carla都使用carla特供版的UE4）
+
+如果clang找不到头文件，需要装一下libstdc++-13-dev。
+其他的按照官网一步一步走就行。
