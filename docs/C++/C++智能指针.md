@@ -3,10 +3,10 @@
 ![](images/C++智能指针_image_1.png)
 
 
-# 1. RAII
+## 1. RAII
 RAII 是 resource acquisition is initialization 的缩写，意为“资源获取即初始化”。它是 C++ 之父 Bjarne Stroustrup 提出的设计理念，其核心是把资源和对象的生命周期绑定，**对象创建获取资源，对象销毁释放资源**。在 RAII 的指导下，C++ 把底层的资源管理问题提升到了对象生命周期管理的更高层次。
 
-# 2. unique_ptr
+## 2. unique_ptr
 
 unique_ptr的原理很简单，就是一个“得不到就毁掉”的理念，直接把拷贝和赋值禁止了。
 
@@ -44,7 +44,7 @@ template<class T>
 
 ```
 
-# 3. shared_ptr
+## 3. shared_ptr
 我们可以对一个资源添加一个计数器，让所有管理该资源的智能共用这个计数器，倘若发生拷贝，计数器加一，倘若有析构发生， 计数器减一，当计数器等于0的时候，就把对象析构掉。
 所有的智能指针共同维护着两个地址：一个时对象资源的地址，一个是引用计数的地址（不是一个shared_ptr有一个int计数，而是共同维护一个int*）
 
@@ -114,7 +114,7 @@ template<class T>
 2. 避免自己对自己赋值，按照1中的机制，如果自己对自己赋值，会造成无谓的操作，或者误析构资源。
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/04c6c45110564c909f23f2cb17f414ab.png)
-# 4. weak_ptr
+## 4. weak_ptr
 
 
 如果你仔细思考 `std::shared_ptr` 就会发现依然存在着资源无法释放的问题。看下面这个例子：
@@ -212,13 +212,11 @@ weak_ptr 不是一个RALL智能指针，它不参与资源的管理，他是专�
 ```
 
 
-# 5 自定义删除器
+##  自定义删除器
 
 不管是我们自己实现的shared_ptr还是库中的shared_ptr,我们在析构的时候默认都是 delete _ptr,如果我们托管的类型是 new T[] ,或者 malloc出来的话，就导致类型不是匹配的，无法析构。
 
 为此，shared_ptr提供了 定制删除器，我们可以在构造的时候作为参数传入。如果我们不传参，就默认使用delete
-
-![](images/C++智能指针_image_2.png)
 
 ```cpp
 
@@ -241,3 +239,53 @@ weak_ptr 不是一个RALL智能指针，它不参与资源的管理，他是专�
 	}
 
 ```
+
+## 智能指针作为形参和返回值
+
+### 作为形参
+
+- **引用传递 (`std::shared_ptr` & `std::unique_ptr`)**：当你想在函数内部修改指针或其指向的对象，并影响调用者持有的指针时。
+```cpp
+void processShared(const std::shared_ptr<MyClass>& ptr) {
+    // 读取ptr指向的对象
+}
+
+void modifyUnique(std::unique_ptr<MyClass>& ptr) {
+    // 修改ptr指向的对象
+}
+
+```
+- **值传递 (`std::shared_ptr`)**：适用于需要拷贝指针的情况，通常用于 `std::shared_ptr`，因为它通过引用计数来共享所有权。
+
+```cpp
+void processShared(const std::shared_ptr<MyClass> ptr) {
+    // 读取ptr指向的对象
+}
+
+void modifyUnique(std::unique_ptr<MyClass> ptr) {
+    // 修改ptr指向的对象
+}
+
+```
+
+- **传递常量引用 (`const std::shared_ptr<T>&`)**：当你不需要修改指针但又不想拷贝（避免增加引用计数）时，适用于只读访问。
+
+
+### 作为返回值
+
+- **创建新对象**：使用 `std::make_unique` 或 `std::make_shared` 在函数内创建新对象，并返回这个智能指针。
+
+```cpp
+std::unique_ptr<MyClass> createMyClassUnique() {
+    return std::make_unique<MyClass>();
+}
+
+std::shared_ptr<MyClass> createMyClassShared() {
+    return std::make_shared<MyClass>();
+}
+
+```
+- **传递所有权**：对于 `std::unique_ptr`，当你想将一个对象的所有权从一个函数传递给另一个函数时。
+
+
+- **共享所有权**：对于 `std::shared_ptr`，当多个所有者需要共享对同一对象的访问时。
