@@ -102,4 +102,9 @@ project(项目名 LANGUAGES CXX) 指定了该项目使用了哪些编程语言�
 
 可以用set_target_properties 为每个项目当都设置编译的属性，会覆盖掉上述的全局属性
 
+## 5 find_library
+
+与find_package不同，find_library更适用于没有提供cmake配置文件的一些库，比如apt安装的golg。
+
+
 
