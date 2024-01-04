@@ -260,6 +260,7 @@ def main():
  
   # Set gym-carla environment
   env = gym.make('carla-v0', params=params)
+  obs = env.reset()
   dqn = DQN()
   dqn.eval_net.load_state_dict(torch.load('EvalNet.pt'))  # 也可以不用load，自己搜一下怎么初始化就行
   dqn.eval_net.eval()
@@ -273,16 +274,15 @@ def main():
   for iteration in range(1,100):
     print("# Iteration{} start!".format(iteration))
     reward = 0
-    env.reset()
     obs = env.reset()
     for episode in range(100):      
-      a=dqn.choose_action(obs)
+      a=dqn.choose_action(obs["birdeye"])
       action = select_action(a)
       print("# Episode{} start!".format(episode))
       print("choose_action:", action)
       obs_,r,done,info = env.step(action)
-      print(obs.shape[0])
-      dqn.push_memory(obs, a, r, obs_)
+      print(obs["birdeye"].shape[0])
+      dqn.push_memory(obs["birdeye"], a, r, obs_["birdeye"])
       reward += r
       obs=obs_
  
