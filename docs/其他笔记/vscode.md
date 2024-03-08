@@ -654,7 +654,9 @@ sudo cpan Unicode::GCString
     ],
     //  LaTeX 设置 END 
 ```
-
+### 4.
+记得将vscode 的clean设置为glob，不然latex-workshop.latex.clean.fileTypes不生效
+![](images/vscode_image_6.png)
 ## 8 settings.json
 
 ```json
