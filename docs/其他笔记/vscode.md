@@ -902,7 +902,21 @@ sudo cpan Unicode::GCString
 }
 ```
 
-## 9 配置远程免密码登录
+## 9 高效设置
+
+打开的编编辑器
+
+![](images/vscode_image_7.png)
+
+多行展示tabs：wrap tabs
+![](images/vscode_image_8.png)
+
+
+终端显示行数上限
+![](images/vscode_image_9.png)
+
+
+## 10 配置远程免密码登录
 
 注意：不论是远程ssh还是github、gitee，只要想在本地免密码登录ssh-server、github、gitee，就要把本地的公钥放到ssh-server、github、gitee上。
 
@@ -913,3 +927,4 @@ sudo cpan Unicode::GCString
 4. 在远程linux下生成sshkey（可选，如果之前生成就不用此步骤，此步骤主要是为了在home下生成.ssh文件夹）
   ssh-keygen -t rsa
 5. 进入到远程linux下的.ssh下创建一个文件 authorized_keys，并把3中的内容复制进去。
+
