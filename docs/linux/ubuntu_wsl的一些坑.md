@@ -25,9 +25,9 @@ export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/nu
 ## wsl2访问外网：
 1.首先保证wsl能访问本机ip
 https://blog.csdn.net/nick_young_qu/article/details/113709768
-![](images/ubuntu%20wsl的一些坑_image_1.png)
+![](images/ubuntu_wsl的一些坑_image_1.png)
 2.调整socket代理
-![](images/ubuntu%20wsl的一些坑_image_2.png)
+![](images/ubuntu_wsl的一些坑_image_2.png)
 
 ```
 host_ip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
@@ -40,6 +40,26 @@ export https_proxy=socks5://$host_ip:10810
 unset http_proxy
 unset https_proxy
 ```
+
+## 终极大法
+
+取消全部代理：
+    unset http_proxy
+    unset HTTP_PROXY
+    unset https_proxy
+    unset HTTPS_PROXY
+    git config --global --unset http.proxy
+    git config --global --unset https.proxy
+
+在windows中C:\Users\hanshuo\.wslconfig中覆盖以下内容
+
+[experimental]
+autoMemoryReclaim=gradual  # gradual  | dropcache | disabled
+networkingMode=mirrored
+dnsTunneling=true
+firewall=false
+autoProxy=true
+
 
 ## cmake升级：
 https://blog.csdn.net/qingkong8978/article/details/106432949
