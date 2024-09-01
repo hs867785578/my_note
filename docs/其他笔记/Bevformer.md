@@ -34,11 +34,30 @@ https://developer.nvidia.com/cuda-toolkit-archive
 
 安装后
 ```
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.1/lib64
-export PATH=$PATH:/usr/local/cuda-11.1/bin
-export CUDA_HOME=/usr/local/cuda-11.1
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
+export PATH=$PATH:/usr/local/cuda/bin
+export CUDA_HOME=/usr/local/cuda
 
 ```
+
+多版本切换：
+```bash
+# 软链接方式
+$ ls -lh /usr/local
+lrwxrwxrwx  1 root root   19 Jul 15  2018 cuda -> /usr/local/cuda-10.1/
+drwxr-xr-x 19 root root 4.0K Jun  5  2019 cuda-10.0/
+drwxr-xr-x 14 root root 4.0K Sep 21 22:54 cuda-10.1/
+......
+
+# 需要切换版本时，执行如下操作
+$ sudo rm -rf /usr/local/cuda
+$ sudo ln -s /usr/local/cuda-10.0 /usr/local/cuda
+```
+
+为了确认，需要查看一下软连接
+
+![](images/Bevformer_image_6.png)
+
 
 ```
 source ~/.zshrc
@@ -60,15 +79,15 @@ note:不要从conda中安装cuda，不管选什么版本，conda都会安装12.4
 
 依次会遇到：
 
-![](images/Bevformer_image_6.png)
+![](images/Bevformer_image_7.png)
 pip install scikit-image\==0.19.0
 
 
-![](images/Bevformer_image_7.png)
+![](images/Bevformer_image_8.png)
 
 pip install networks \== 2.2
 
-![](images/Bevformer_image_8.png)
+![](images/Bevformer_image_9.png)
 
 pip install numba\==0.48.0
 
@@ -84,7 +103,7 @@ pip install plyfile\==0.7.3
 
 pip install typing-extensions\==4.10.0
 
-![](images/Bevformer_image_9.png)
+![](images/Bevformer_image_10.png)
 
 ## vscode本地调试
 
