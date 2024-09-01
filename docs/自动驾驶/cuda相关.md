@@ -60,14 +60,28 @@ cudnn是一个加速库，cuda是一个工具的集合，里面有很多工具�
 
 [cuDNN Archive | NVIDIA Developer](https://developer.nvidia.com/rdp/cudnn-archive)
 
-下载对应的cuda版本的cudnn，并解压到cuda的文件夹中
+下载对应的cuda版本的cudnn，并解压到对应的cuda的文件夹中
 
 ```
 tar -xvf cudnn-linux-x86_64-8.4.0.27_cuda11.6-archive.tar.xz
 cd cudnn-linux-x86_64-8.4.0.27_cuda11.6-archive
-sudo cp lib/* /usr/local/cuda-11.2/lib64/
-sudo cp include/* /usr/local/cuda-11.2/include/
-sudo chmod a+r /usr/local/cuda-11.2/lib64/*
-sudo chmod a+r /usr/local/cuda-11.2/include/*
 
+sudo cp include/cudnn.h /usr/local/cuda-10.0/include/
+sudo cp lib64/lib* /usr/local/cuda-10.0/lib64/
+sudo chmod a+r /usr/local/cuda-10.0/include/cudnn.h /usr/local/cuda-10.0/lib64/libcudnn*
+ 
+cd /usr/local/cuda-10.0/targets/x86_64-linux/lib/
+sudo ln -sf libcudnn.so.7.4.1 libcudnn.so.7
+
+```
+
+查看cudnn版本：
+查看cuDNN版本，旧版本指令为cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A2，新版本有更新，将cuDNN版本信息单拉了一个文件名为cudnn_version.h，所以新版本查看cuDNN版本的命令为cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
+
+```
+cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A2
+```
+
+```
+cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
 ```
