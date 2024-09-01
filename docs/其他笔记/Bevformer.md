@@ -37,7 +37,6 @@ https://developer.nvidia.com/cuda-toolkit-archive
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
 export PATH=$PATH:/usr/local/cuda/bin
 export CUDA_HOME=/usr/local/cuda
-
 ```
 
 多版本切换：
@@ -56,13 +55,19 @@ $ sudo ln -s /usr/local/cuda-10.0 /usr/local/cuda
 
 为了确认，需要查看一下软连接
 
-![](images/Bevformer_image_6.png)
+![](../自动驾驶/images/cuda相关_image_2.png)
 
 
 ```
 source ~/.zshrc
-sudo ldconfig
 ```
+
+其实不需要sudo ldconfig：
+![](../自动驾驶/images/cuda相关_image_3.png)
+
+
+LD_LIBRARY_PATH的优先级高于/etc/ld.so.conf.d，ldconfig命令只会影响ld.so.conf.d，与LD_LIBRARY_PATH无关。
+![](../自动驾驶/images/cuda相关_image_4.png)
 
 检验安装的版本是否正确
 
@@ -79,15 +84,15 @@ note:不要从conda中安装cuda，不管选什么版本，conda都会安装12.4
 
 依次会遇到：
 
-![](images/Bevformer_image_7.png)
+![](images/Bevformer_image_9.png)
 pip install scikit-image\==0.19.0
 
 
-![](images/Bevformer_image_8.png)
+![](images/Bevformer_image_10.png)
 
 pip install networks \== 2.2
 
-![](images/Bevformer_image_9.png)
+![](images/Bevformer_image_11.png)
 
 pip install numba\==0.48.0
 
@@ -103,7 +108,7 @@ pip install plyfile\==0.7.3
 
 pip install typing-extensions\==4.10.0
 
-![](images/Bevformer_image_10.png)
+![](images/Bevformer_image_12.png)
 
 ## vscode本地调试
 
