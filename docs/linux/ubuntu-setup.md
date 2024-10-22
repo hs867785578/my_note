@@ -304,6 +304,342 @@ plugins=(
 
 ## 8. 配置vscode
 
+```json
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "code-runner.runInTerminal": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "debug.onTaskErrors": "debugAnyway",
+    "cmake.configureOnOpen": false,
+    "markdown-preview-enhanced.previewTheme": "atom-light.css",
+    "explorer.confirmDelete": false,
+    "workbench.iconTheme": "vscode-icons",
+    "git.enableSmartCommit": true,
+    "remote.SSH.remotePlatform": {
+        "thicvhs": "linux",
+        "hans": "linux",
+        "hangqi": "linux",
+        "Debug": "linux",
+        "tiaobanA100": "linux",
+        "qihang": "linux",
+        "tiaoban3090/4090": "linux",
+        "DebugA100": "linux",
+        "Debug4090": "linux",
+        "Debug4090MCT": "linux",
+        "mutiGPU": "linux"
+    },
+    "git.ignoreLegacyWarning": true,
+    "terminal.integrated.inheritEnv": false,
+    "vsicons.dontShowNewVersionMessage": true,
+    "update.mode": "manual",
+    "notebook.lineNumbers": "on",
+    "EnglishChineseDictionary.enableHover": true,
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "yaml": true
+    },
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+    "clang-format.fallbackStyle": "Google",
+    "git.confirmSync": false,
+    "clang-format.executable": "/usr/bin/clang-format",
+    "clang-format.language.cpp.fallbackStyle": "Google",
+    "clang-format.language.cpp.style": "Google",
+    "editor.minimap.enabled": false,
+    "editor.fontSize": 15,
+    "cmake.generator": "Unix Makefiles",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false,
+        "<C-x>": false,
+        "<C-c>": false,
+        "<C-z>": false,
+        "<C-v>": false,
+        "<C-[>": false,
+        "<C-]>": false,
+        "<C-s>": false,
+        "<C-b>": false,
+        "<C-/>": false,
+        "<C-w>": false,
+        "<C-shift+f>": false
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "<c-h>"
+            ],
+            "after": [
+                "<left>"
+            ]
+        },
+        {
+            "before": [
+                "<c-l>"
+            ],
+            "after": [
+                "<right>"
+            ]
+        },
+        {
+            "before": [
+                "<c-j>"
+            ],
+            "after": [
+                "<down>"
+            ]
+        },
+        {
+            "before": [
+                "<c-k>"
+            ],
+            "after": [
+                "<up>"
+            ]
+        },
+        {
+            "before": [
+                "<c-u>"
+            ],
+            "after": [
+                "<esc>",
+                "b",
+                "i"
+            ]
+        },
+        {
+            "before": [
+                "<c-d>"
+            ],
+            "after": [
+                "<esc>",
+                "e",
+                "a"
+            ]
+        }
+    ],
+    "[python]": {
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "editor.fontLigatures": false,
+    "terminal.integrated.fontFamily": "monospace",
+    "editor.rulers": [
+        80
+    ],
+    "C_Cpp.clang_format_style": "Google",
+    "C_Cpp.default.cppStandard": "gnu++17",
+    "python.languageServer": "Default",
+    "python.formatting.provider": "black",
+    "python.analysis.extraPaths": [
+        "/home/thicv/carla/carla-ros/src/ros_compatibility/src",
+        "/home/thicv/carla/carla-ros/src/carla_common/src",
+        "/home/thicv/Downloads/test/waymo-open-dataset/src",
+        "/home/thicv/Downloads/test/waymo-open-dataset/src/py_protos"
+    ],
+    "cmake.automaticReconfigure": false,
+    "cmake.autoSelectActiveFolder": false,
+    "cmake.configureOnEdit": false,
+    "C_Cpp.inlayHints.parameterNames.enabled": true,
+    "grunt.autoDetect": "on",
+    "gulp.autoDetect": "on",
+    "jake.autoDetect": "on",
+    "cmake.buildTask": true,
+    "extensions.ignoreRecommendations": true,
+    "github.copilot.advanced": {},
+    "workbench.startupEditor": "none",
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "julia.symbolCacheDownload": true,
+    "julia.enableTelemetry": true,
+    "julia.executablePath": "/home/thicv/miniconda3/envs/julia_test/bin/julia",
+    "latex-workshop.bibtex-format.tab": "tab",
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdftex 简单编译",
+            "tools": [
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "XeLaTeX 简单编译",
+            "tools": [
+                "xelatex"
+            ]
+        },
+        {
+            "name": "xe->bib->xe->xe 复杂编译",
+            "tools": [
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
+            ]
+        },
+        {
+            "name": "pdflatex -> bibtex -> pdflatex*2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
+        "*.bcf",
+        "*.run.xml"
+    ],
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "cmake.showOptionsMovedNotification": false,
+    "python.autoComplete.extraPaths": [
+        "/home/thicv/Downloads/test/waymo-open-dataset/src/"
+    ],
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh"
+        },
+        "fish": {
+            "path": "fish"
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        }
+    },
+    "editor.accessibilitySupport": "off",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "workbench.editor.wrapTabs": true,
+    "terminal.integrated.scrollback": 20000,
+    "terminal.integrated.persistentSessionScrollback": 1000,
+    "python.analysis.cacheLSPData": true,
+    "gitlens.hovers.currentLine.over": "line",
+    "python.analysis.packageIndexDepths": [
+        {
+            "name": "sklearn",
+            "depth": 2
+        },
+        {
+            "name": "matplotlib",
+            "depth": 2
+        },
+        {
+            "name": "scipy",
+            "depth": 2
+        },
+        {
+            "name": "django",
+            "depth": 2
+        },
+        {
+            "name": "flask",
+            "depth": 2
+        },
+        {
+            "name": "fastapi",
+            "depth": 2
+        }
+    ],
+    "github.copilot.chat.experimental.temporalContext.enabled": true,
+    "cursor.cpp.disabledLanguages": [
+        "plaintext",
+        "markdown",
+        "scminput"
+    ],
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.editor.editorActionsLocation": "titleBar",
+    "workbench.activityBar.orientation": "vertical",
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "variable.parameter"
+                ],
+                "settings": {
+                    // "foreground":"#ff0000",
+                    "fontStyle": "italic"
+                }
+            }
+        ]
+    }
+}
+
+```
+
 ## 9 ubuntu配置wifi静态ip
 
 网关和地址要保持一致
