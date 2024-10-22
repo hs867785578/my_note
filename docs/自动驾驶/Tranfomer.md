@@ -1,0 +1,3 @@
+
+对于Transformer encoder，一般是selft attention
+对于Transformer decoder，一般是cross attention
