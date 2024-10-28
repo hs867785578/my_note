@@ -928,3 +928,12 @@ sudo cpan Unicode::GCString
   ssh-keygen -t rsa
 5. 进入到远程linux下的.ssh下创建一个文件 authorized_keys，并把3中的内容复制进去。
 
+
+## 11 vscode配置pyproject.toml
+
+如果对于mmdection中config，pyright经常标红，这是因为pylance的版本太新，解决方案：
+### 1. 降级pylance到8.1
+
+### 2 在pyproject.toml中配置pyright
+
+![](2-vscode.png)
