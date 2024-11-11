@@ -2,6 +2,10 @@
 对于Transformer encoder，一般是selft attention
 对于Transformer decoder，一般是cross attention
 
+Encoder-Decoder架构一般适用于翻译、文本分类等任务，Decoder only架构适用于续写等任务。
+
+![](images/架构相关1.png)
+
 ## Transformer训练快，推理慢；RNN训练慢推理快
 
 
