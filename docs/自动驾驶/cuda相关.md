@@ -85,3 +85,42 @@ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A2
 ```
 cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
 ```
+
+## 重装nvidia驱动
+
+### 卸载
+```bash
+#先查看驱动以及版本安装情况，命令如下：
+ls /usr/src | grep nvidia
+ 
+#进入安装目录，用驱动自带卸载命令卸载，一般情况下能卸载干净
+cd /usr/bin
+ls nvidia-*
+sudo nvidia-uninstall
+ 
+#然后用上面的查看命令查看是否卸载干净，完成卸载
+ls /usr/src | grep nvidia
+```
+
+### 重装
+添加nvidia驱动的ppa源
+```bash
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt-get update
+```
+查看合适的驱动版本
+```bash
+ubuntu-drivers devices
+```
+
+换源：vim /etc/apt/sources.list.d/graphics-drivers-ubuntu-ppa-focal.list
+
+将其中涉及http://ppa.launchpad.net替换为https://launchpad.proxy.ustclug.org
+
+正式安装
+```bash
+sudo apt-get update
+sudo apt install nvidia-driver-555
+```
+
+
