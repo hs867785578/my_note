@@ -5,8 +5,8 @@ site_name: Hans's notebook
 theme:
   name: material
   language: en
-  logo: logo.png
-  favicon: logo.png
+  logo: logo.jpg
+  favicon: logo.jpg
   palette:
     scheme: default
     primary: black
